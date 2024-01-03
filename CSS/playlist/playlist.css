@@ -1,0 +1,114 @@
+.playlist{
+    /* border: 2px solid red; */
+    position: fixed;
+    border-radius: 10px;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 20px;
+    background-color: var(--primary-color-three);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s linear 0.2s;
+}
+
+.playlist.item--active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.playlist__title{
+    font-size: 2.2rem;
+    color: var(--white-color);
+    text-align: center;
+    padding: 20px 0 10px;
+}
+
+.playlist__form{
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist__form-input{
+    width: 290px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color-two);
+    padding: 0 10px;
+    color: var(--white-color);
+    font-size: 1.4rem;
+}
+
+.playlist__form-input::placeholder{
+    color: var(--white-color);
+}
+
+.playlist__form-label{
+    margin: 15px 0 5px;
+    font-size: 1.4rem;
+    color: var(--white-color);
+}
+
+.playlist__form-input.playlist__form-input--file{
+    padding: 10px 0 10px 10px;
+    height: auto;
+    margin-top: unset;
+}
+
+.playlist__form-input.playlist__form-input--file::-webkit-file-upload-button{
+    color: var(--white-color);
+    background-color:var(--primary-color-one);
+    border: none;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.playlist__form-input.playlist__form-input--file::-webkit-file-upload-button:hover{
+    opacity: 1;
+}
+
+.playlist__form-button{
+    height: 36px;
+    background-color: var(--primary-color-one);
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    opacity: 0.8;
+}
+
+.playlist__form-button:hover{
+    opacity: 1;
+}
+
+.playlist__form-button.icon--disable{
+    opacity: 0.8;
+    cursor:not-allowed;
+}
+
+.playlist__close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.playlist__close
+i{
+    color: var(--white-color);
+    font-size: 1.8rem;
+    opacity: 0.8;
+}
+
+.playlist__close
+i:hover{
+    opacity: 1;
+}

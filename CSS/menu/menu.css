@@ -1,0 +1,204 @@
+/* Phần menu bên trái */
+.menu{
+    /* border: 2px solid red; */
+    width: var(--width-menu);
+    position: fixed;
+    height: var(--height-menu);
+    /* border: 2px solid black; */
+    background-color: var(--primary-color-two);
+    border-right: 1px solid var(--white-color);
+}
+
+.menu__logo{
+    /* border: 2px solid red; */
+    padding: 10px 0 10px 14px;
+}
+
+.menu__option{
+
+}
+
+.menu__option-list{
+    list-style: none;
+}
+
+/* Sự kiện hover của menu__option-items*/
+.menu__option-items:hover
+.menu__option-items-svg
+path{
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+.menu__option-items:hover
+.menu__option-items-svg
+rect{
+    stroke-opacity: 1;
+}
+
+.menu__option-items:hover
+.menu__option-items-span{
+    opacity: 1;
+}
+
+/* option active của menu__option-items */
+.menu__option-items.item--active{
+    background-color: var(--primary-color-three);
+    position: relative;
+}
+
+.menu__option-items.item--active::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 3px;
+    background-color: var(--primary-color-one);
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.menu__option-items.item--active
+.menu__option-items-svg
+path{
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+.menu__option-items.item--active
+.menu__option-items-svg
+rect{
+    stroke-opacity: 1;
+}
+
+.menu__option-items.item--active
+.menu__option-items-span{
+    opacity: 1;
+}
+/* Kết thúc của option active */
+
+.menu__option-items-link{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    padding-left: 20px;
+    /* border: 2px solid red; */
+}
+
+.menu__option-items-svg.menu__option-items-svg--color{
+    fill: var(--white-color)
+}
+
+.menu__option-items-svg.menu__option-items-svg--border
+path{
+    stroke: var(--white-color);
+}
+
+.menu__option-items-svg.menu__option-items-svg--border
+rect{
+    stroke: var(--white-color);
+}
+
+.menu__option-items-span{
+    color: var(--white-color);
+    opacity: 0.8;
+    font-size: 1.6rem;
+    margin-left: 14px;
+}
+
+.menu__option
+.space{
+    display: block;
+    width: 80%;
+    height: 1px;
+    background-color: var(--white-color);
+    margin: 10px auto;
+}
+
+.menu__option-items--relative{
+    position: relative;
+}
+
+.menu__option-items-children{
+    position: absolute;
+    left: calc(var(--width-menu) + 10px);
+    list-style: none;
+    width: var(--width-menu);
+    background-color: var(--primary-color-two);
+    top: 0;
+    border-radius: 4px;
+    display: none;
+}
+
+.menu__option-items-children::before{
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid var(--primary-color-two);
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid transparent;
+    left: -25px;
+    top: 6px;
+    z-index: -1;
+}
+
+.menu__option-items-children-items:first-child{
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.menu__option-items-children-items:last-child{
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.menu__option-items-children-items:hover{
+    background-color: var(--primary-color-three);
+}
+
+.menu__option-items-children-items:hover
+.menu__option-items-children-span{
+    opacity: 1;
+}
+
+.menu__option-items-children-link{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    padding-left: 20px;
+}
+
+.menu__option-items-children-span{
+    color: var(--white-color);
+    opacity: 0.8;
+    font-size: 1.4rem;
+    margin-left: 14px;
+}
+
+.menu__playlist{
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    border-top: 2px solid var(--primary-color-three);
+    width: 100%;
+    cursor: pointer;
+    background-color: var(--primary-color-two);
+}
+
+.menu__playlist:hover
+.menu__playlist-span{
+    opacity: 1;
+}
+
+.menu__playlist-span{
+    color: var(--white-color);
+    margin-left: 14px;
+    font-size: 1.6rem;
+    opacity: 0.8;
+}

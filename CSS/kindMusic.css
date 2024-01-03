@@ -1,0 +1,317 @@
+
+/* Bắt đầu phần chứa những thuộc tính chung của các phần: 
+
+    - Nhạc chill
+    - Nhạc tâm trạng
+    - Nhạc remix
+    - Ca sĩ thịnh hành
+    - Top 100
+    - album
+
+*/
+.content__block{
+
+}
+
+.content__block-title{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0 20px;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.content__block-title-h5,
+.content__block-title-link{
+    color: var(--white-color);
+}
+
+.content__block-title-h5{
+    font-size: 2.2rem;
+}
+
+.content__block-title-link{
+    text-decoration: none;
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+.content__block-title-link:hover{
+    opacity: 1;
+}
+
+.content__block-title-link-span{
+
+}
+
+.content__block-title-link
+i{
+    margin-left: 5px;
+}
+
+.content__block-container{
+    /* overflow: hidden; */
+}
+
+.content__block-container-list{
+    margin-left: -10px;
+    margin-right: -10px;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content__block-container-items{
+    padding: 10px;
+}
+
+.content__block-container-items-block{
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.content__block-container-items-block:hover
+.content__block-container-items-block-img{
+    transform: scale(1.1);
+}
+
+.content__block-container-items-block:hover
+.content__block-container-items-block-blur{
+    top: 0;
+}
+
+.content__block-container-items-block:hover
+.content__block-container-items-block-icon{
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__block-container-items-block:hover
+.content__block-container-items-block-icon-i--left
+{
+    left: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__block-container-items-block:hover
+.content__block-container-items-block-icon-i--center
+{
+    top: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__block-container-items-block:hover
+.content__block-container-items-block-icon-i--right
+{
+    right: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.content__block-container-items-block-img{
+    padding-top: 100%;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.3s linear;
+}
+
+.content__block-container-items-block-blur{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: var(--black-color);
+    opacity: 0.8;
+    transition: 0.3s linear;
+}
+
+.content__block-container-items-block-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    /* border: 2px solid red; */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__block-container-items-block-icon-i{
+    transition: 0.3s linear 0.3s;
+    position: relative;
+}
+
+.content__block-container-items-block-icon--child-list{
+    position: absolute;
+    list-style: none;
+    background-color: var(--primary-color-one);
+    padding: 10px;
+    border-radius: 10px;
+    bottom: 30px;
+    right: -10px;
+    display: none;
+}
+
+.content__block-container-items-block-icon--child-list::before{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 15px;
+    left: 10px;
+    right: 10px;
+    bottom: -15px;
+}
+
+.content__block-container-items-block-icon--child-list::after{
+    content: "";
+    display: block;
+    position: absolute;
+    border-top: 5px solid var(--primary-color-one);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 5px solid transparent;
+    bottom: -9px;
+    right: 6px;
+}
+
+.content__block-container-items-block-icon--child-items:nth-child(2){
+    margin-left: 10px;
+}
+
+.content__block-container-items-block-icon-i.content__block-container-items-block-icon-i--right:hover
+.content__block-container-items-block-icon--child-list{
+    display: flex;
+}
+
+.content__block-container-items-block-icon-i
+i{
+    font-size: 1.8rem;
+    position: relative;
+    top: 3px;
+    display: none;
+    color: var(--white-color);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.content__block-container-items-block-icon-i
+.icon--add-library{
+    color: var(--primary-color-one);
+}
+
+.content__block-container-items-block-icon-i
+.icon--active:hover{
+    opacity: 1;
+}
+
+.content__block-container-items-block-icon-i
+.icon--active{
+    display: block;
+}
+
+.content__block-container-items-block-icon-i--large
+i{
+    font-size: 5.0rem;
+}
+
+.content__block-container-items-block-icon-i--left
+{
+    left: -20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__block-container-items-block-icon-i--center
+{
+    top: 20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__block-container-items-block-icon-i--right
+{
+    right: -20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__block-container-items-text{
+    padding: 10px 0;
+}
+
+/* văn bản span */
+.content__block-container-items-text-span{
+    font-size: 1.6rem;
+    color: var(--white-color);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 20px;
+}
+
+/* Văn bản link */
+.content__block-container-items-text-title{
+    
+}
+
+.content__block-container-items-text-title-link{
+    font-size: 1.6rem;
+    color: var(--white-color);
+    text-decoration: none;
+    opacity: 0.8;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.content__block-container-items-text-title-link:hover{
+    opacity: 1;
+}
+
+.content__block-container-items-text-singer{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.content__block-container-items-text-singer,
+.content__block-container-items-singer-link
+{
+    font-size: 1.4rem;
+    color: var(--white-color);
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.content__block-container-items-singer-link{
+    line-height: 18px;
+}
+
+.content__block-container-items-singer-link:hover{
+    opacity: 1;
+}
+
+/* Kết thúc phần chứa những thuộc tính chung của các phần: 
+
+    - Nhạc chill
+    - Nhạc tâm trạng
+    - Nhạc remix
+    - Ca sĩ thịnh hành
+    - Top 100
+    - album
+
+*/
+
+

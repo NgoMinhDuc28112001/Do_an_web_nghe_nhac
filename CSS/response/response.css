@@ -1,0 +1,60 @@
+/* response cho menu */
+@media only screen and (max-width: 992px)
+{
+    .menu{
+        width: 70px;
+    }
+
+    .menu__logo{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .menu__option-items-link{
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+    }
+
+    .block-logo__link
+    span{
+        display: none;
+    }
+
+    .menu__option-items-link
+    span{
+        display: none;
+    }
+
+    .menu__playlist
+    .menu__playlist-span{
+        display: none;
+    }
+
+    .menu__playlist{
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+    }
+
+    .space-left{
+        width: 70px;
+    }
+
+    .containers{
+        width: calc(100% - 70px);
+    }
+
+    .header{
+        left: 70px;
+    }
+
+    .header__container-items-form{
+        display: none;
+    }
+
+    .header__container-items-search{
+        display: flex;
+    }
+}
+

@@ -1,0 +1,57 @@
+/* Phần thân của chủ đề và thể loại */
+.content{
+    
+}
+
+.content__slide{
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.content__slide-list{
+    list-style: none;
+}
+
+.content__slide-items{
+    
+}
+
+.content__slide-items-link{
+    
+}
+
+.content__slide-items-link-img{
+    width: 100%;
+}
+
+/* xử lý css cho slick slider */
+
+.slick-arrow{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--black-color);
+    border: none;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    opacity: 0.4;
+}
+
+.slick-arrow:hover{
+    opacity: 0.8;
+}
+
+.slick-arrow i{
+    font-size: 2.0rem;
+    color: var(--white-color);
+}
+
+.slick-prev{
+    left: 20px;
+}
+
+.slick-next{
+    right: 20px;
+}

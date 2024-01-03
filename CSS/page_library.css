@@ -1,0 +1,474 @@
+.content{
+    /* border: 2px solid red; */
+}
+
+.content__title{
+    font-size: 4.0rem;
+    color: var(--white-color);
+    padding: 40px 0 20px;
+}
+
+.content__playlist{
+    
+}
+
+.content__playlist-title{
+    font-size: 2.2rem;
+    color: var(--white-color);
+    padding: 20px 0 20px;
+}
+
+.content__playlist-content-list{
+    list-style: none;
+    /* border: 2px solid red; */
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.content__playlist-content-items{
+    /* border: 2px solid red; */
+    padding: 0 10px;
+}
+
+.content__playlist-content-items-block{
+    padding-top: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.content__playlist-content-items-block:hover
+.content__playlist-content-items-block-img{
+    transform: scale(1.2);
+}
+
+.content__playlist-content-items-block:hover
+.content__playlist-content-items-block-blur{
+    top: 0;
+}
+
+.content__playlist-content-items-block:hover
+.content__playlist-content-items-block-icon
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__playlist-content-items-block:hover
+.content__playlist-content-items-block-icon-items.content__playlist-content-items-block-icon-items--left{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__playlist-content-items-block:hover
+.content__playlist-content-items-block-icon-items.content__playlist-content-items-block-icon-items--right{
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__playlist-content-items-block:hover
+.content__playlist-content-items-block-icon-items.content__playlist-content-items-block-icon-items--center{
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__playlist-content-items-block-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.3s linear;
+}
+
+.content__playlist-content-items-block-blur{
+    transition: 0.3s linear 0.1s;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black-color);
+    opacity: 0.8;
+}
+
+.content__playlist-content-items-block-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__playlist-content-items-block-icon-items{
+    position: relative;
+    transition: 0.3s linear 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__playlist-content-items-block-icon-items.content__playlist-content-items-block-icon-items--left{
+    left: -20px;
+}
+
+.content__playlist-content-items-block-icon-items.content__playlist-content-items-block-icon-items--right{
+    right: -20px;
+}
+
+.content__playlist-content-items-block-icon-items.content__playlist-content-items-block-icon-items--center{
+    top: 20px;
+}
+
+.content__playlist-content-items-block-icon-items
+i{
+    font-size: 1.8rem;
+    color: var(--white-color);
+    position: relative;
+    top: 3px;
+    opacity: 0.8;
+    display: none;
+    cursor: pointer;
+}
+
+.content__playlist-content-items-block-icon-items
+i:hover{
+    opacity: 1;
+}
+
+.content__playlist-content-items-block-icon-items.content__playlist-content-items-block-icon-items--large
+i{
+    font-size: 5.0rem;
+}
+
+.content__playlist-content-items-block-icon-items
+.icon--active{
+    display: block;
+}
+
+.content__playlist-content-items-text{
+    /* border: 2px solid red; */
+    padding: 10px 0;
+}
+
+.content__playlist-content-items-text-title{
+    font-size: 1.6rem;
+    color: var(--white-color);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    font-weight: 700;
+}
+
+.content__playlist-content-items-text-list{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.content__playlist-content-items-text-items{
+    
+}
+
+.content__playlist-content-items-text-link{
+    font-size: 1.4rem;
+    color: var(--white-color);
+}
+
+.content__nav{
+    list-style: none;
+    display: flex;
+    padding: 20px 0;
+}
+
+.content__nav-items{
+    color: var(--white-color);
+    font-size: 1.6rem;
+    margin-right: 20px;
+    /* border: 2px solid red; */
+    padding: 10px 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.content__nav-items .space{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background-color: var(--primary-color-one);
+    transition: 0.2s linear;
+    border-radius: 2px;
+}
+
+.content__nav-items.item--active .space{
+    left: 0;
+    right: 0;
+}
+
+.content__block-tab{
+
+}
+
+.content__block-tab-items{
+    display: none;
+}
+
+.content__block-tab-items.item--active{
+    display: block;
+}
+
+.content__block-tab-nav{
+    list-style: none;
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.content__block-tab-nav-items{
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid var(--white-color);
+    color: var(--white-color);
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.content__block-tab-nav-items.item--active{
+    background-color: var(--primary-color-one);
+    border: 2px solid var(--primary-color-one);
+}
+
+.content__block-tab-block{
+
+}
+
+.content__block-tab-content{
+    /* border: 2px solid red; */
+    list-style: none;
+    margin-left: -10px;
+    margin-right: -10px;
+    display: none;
+}
+
+.content__block-tab-content.item--active{
+    display: block;
+}
+
+.content__block-tab-content-items{
+    /* border: 2px solid black; */
+    padding: 0 10px;
+}
+
+.content__block-tab-content-items-block{
+    padding-top: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.content__block-tab-content-items-block:hover
+.content__block-tab-content-items-block-img{
+    transform: scale(1.2);
+}
+
+.content__block-tab-content-items-block:hover
+.content__block-tab-content-items-block-blur{
+    top: 0;
+}
+
+.content__block-tab-content-items-block:hover
+.content__block-tab-content-items-block-icon{
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__block-tab-content-items-block:hover
+.content__block-tab-content-items-block-icon-items.content__block-tab-content-items-block-icon-items--left{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__block-tab-content-items-block:hover
+.content__block-tab-content-items-block-icon-items.content__block-tab-content-items-block-icon-items--center{
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__block-tab-content-items-block:hover
+.content__block-tab-content-items-block-icon-items.content__block-tab-content-items-block-icon-items--right{
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__block-tab-content-items-block-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.3s linear;
+}
+
+.content__block-tab-content-items-block-blur{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black-color);
+    opacity: 0.8;
+    transition: 0.3s linear 0.2s;
+}
+
+.content__block-tab-content-items-block-icon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    width: 80%;
+    /* border: 2px solid red; */
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__block-tab-content-items-block-icon-items{
+    position: relative;
+    transition: 0.3s linear 0.3s;
+}
+
+.content__block-tab-content-items-block-icon-items
+i{
+    color: var(--white-color);
+    font-size: 1.8rem;
+    position: relative;
+    top: 4px;
+    cursor: pointer;
+    opacity: 0.8;
+    display: none;
+}
+
+.content__block-tab-content-items-block-icon-items
+i:hover{
+    opacity: 1;
+}
+
+.content__block-tab-content-items-block-icon-items.content__block-tab-content-items-block-icon-items--large
+i{
+    font-size: 5.0rem;
+}
+
+.content__block-tab-content-items-block-icon-items
+.icon--active{
+    display: block;
+}
+
+.content__block-tab-content-items-block-icon-items
+.icon--add-library{
+    color: var(--primary-color-one);
+}
+
+.content__block-tab-content-items-block-icon-items.content__block-tab-content-items-block-icon-items--left{
+    left: -20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__block-tab-content-items-block-icon-items.content__block-tab-content-items-block-icon-items--center{
+    top: 20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__block-tab-content-items-block-icon-items.content__block-tab-content-items-block-icon-items--right{
+    right: -20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__block-tab-content-items-text{
+    padding: 10px 0;
+}
+
+.content__block-tab-content-items-text-name-song{
+    font-size: 1.6rem;
+    color: var(--white-color);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    font-weight: 700;
+}
+
+.content__block-tab-content-items-text-artist{
+    list-style: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    color: var(--white-color);
+}
+
+.content__block-tab-content-items-text-artist-items{
+
+}
+
+.content__block-tab-content-items-text-artist-items-link{
+    color: var(--white-color);
+}
+
+/* hiển thị khối này khi không có bài hát yêu thích nào */
+.content__block-tab-content-no-song{
+    padding: 0 10px;
+    padding-bottom: 20px;
+}
+
+.content__block-tab-content-no-song-block{
+    background-color: var(--primary-color-two);
+    border-radius: 10px;
+    min-height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content__block-tab-content-no-song-block i{
+    font-size: 6.0rem;
+    color: var(--white-color);
+    opacity: 0.6;
+}
+
+.content__block-tab-content-no-song-block span{
+    font-size: 1.6rem;
+    color: var(--white-color);
+    opacity: 0.6;
+    display: block;
+    margin-top: 20px;
+}
+
+
+
+
+
+

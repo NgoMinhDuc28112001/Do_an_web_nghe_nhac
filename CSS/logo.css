@@ -1,0 +1,52 @@
+/* font Lobster */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap');
+/* Thiết kế logo */
+.block-logo {
+    position: absolute;
+    /* border: 2px solid red; */
+}
+
+.block-logo__link {
+    text-decoration: none;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+}
+
+.block-logo__link-img {
+    width: 100px;
+}
+
+.block-logo__link span {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--primary-color-one);
+    position: relative;
+    top: 1px;
+    text-shadow: 0px 0px 2px var(--black-color);
+    font-family: 'Lobster Two', cursive;
+}
+
+/* Các option */
+
+/* block-logo--padding */
+.block-logo--position-unset{
+    position: unset;
+}
+
+.block-logo--padding{
+    padding: 10px 20px;
+}
+
+/* block-logo--small-logo */
+.block-logo.block-logo--small-logo
+.block-logo__link
+.block-logo__link-img{
+    width: 70px;
+}
+
+.block-logo.block-logo--small-logo
+.block-logo__link
+span{
+    font-size: 1.6rem;
+}

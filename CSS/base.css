@@ -1,0 +1,89 @@
+/* roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    /* Màu sắc */
+    --primary-color-one: #158370;
+    --primary-color-two: #0f1a2e;
+    --primary-color-three: #1b2639;
+    --white-color: white;
+    --black-color: black;
+    --background-plus-color: #e8dbff;
+    --background-premium-color: #f9f1dd;
+    --plus-color: #8e4cff;
+    --premium-color: #e5ac1a;
+    /* width*/
+    --width-menu: 240px;
+    --width-container: calc(100% - var(--width-menu));
+    --width-setting-child: 244px;
+    --width-user-child: 346px;
+    /* height */
+    --height-menu: calc(100vh);
+    --height-header: 70px;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+/* Quy định scroll không hiện cho thẻ body */
+body::-webkit-scrollbar{
+    width: 0px;
+}
+
+html 
+body
+* {
+    font-family: "Roboto", sans-serif;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html 
+body
+a:hover{
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+/* Phần container */
+.containers{
+    background-color: var(--primary-color-three);
+    width: var(--width-container);
+    margin-top: var(--height-header);
+    height: calc(100vh - var(--height-header));
+    position: relative;
+    overflow: auto;
+    padding: 0 20px;
+}
+
+/* Quy định scroll cho container */
+.container::-webkit-scrollbar{
+    width: 4px;
+}
+
+.container::-webkit-scrollbar-track{
+    background-color: var(--primary-color-three);
+}
+
+.container::-webkit-scrollbar-thumb{
+    background-color: var(--primary-color-two);
+    border-radius: 2px;
+}
+
+/* Khối bao tất cả */
+.apps{
+    display: flex;
+}
+
+/* Khoảng trống bên trái */
+.space-left{
+    width: var(--width-menu);
+}
+
+
+
+

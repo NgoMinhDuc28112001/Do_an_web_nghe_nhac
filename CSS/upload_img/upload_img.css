@@ -1,0 +1,103 @@
+.upload-img{
+    /* border: 2px solid red; */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 4;
+    padding: 40px;
+    background-color: var(--primary-color-two);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s linear 0.2s;
+}
+
+/* item--active là để hiển thị phần tử  */
+.upload-img.item--active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.upload-img__title{
+    padding-bottom: 20px;
+}
+
+.upload-img__title
+h5{
+    font-size: 2.0rem;
+    color: var(--primary-color-one);
+}
+
+.upload-img__close{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.upload-img__close:hover{
+    opacity: 1;
+}
+
+.upload-img__close i{
+    color: var(--white-color);
+    font-size: 2.8rem;
+}
+
+.upload-img__img{
+    border: 10px solid var(--primary-color-one);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.upload-img__form{
+    margin-top: 20px;
+}
+
+.upload-img__input{
+    border: 2px solid var(--primary-color-one);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--primary-color-one);
+}
+
+.upload-img__input::-webkit-file-upload-button{
+    color: var(--white-color);
+    background-color:var(--primary-color-one);
+    border: none;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.upload-img__input::-webkit-file-upload-button:hover{
+    opacity: 1;
+}
+
+.upload-img__button{
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: var(--primary-color-one);
+    border: none;
+    margin-top: 20px;
+    color: var(--white-color);
+    font-size: 1.6rem;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.upload-img__button:hover{
+    opacity: 1;
+}

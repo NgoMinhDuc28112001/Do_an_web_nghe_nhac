@@ -1,0 +1,55 @@
+/* Phần footer */
+.footer{
+    width: 100%;
+}
+
+.footer__container{
+    /* border: 2px solid red; */
+}
+
+.footer__container-title{
+    text-align: center;
+    padding: 40px 0 20px;
+    font-size: 2.2rem;
+    color: var(--white-color);
+}
+
+.footer__container-content{
+    /* border: 2px solid blue; */
+    overflow: hidden;
+}
+
+.footer__container-content-list{
+    /* border: 2px solid yellow; */
+    /* width: calc(100% + 20px); */
+    margin-left: -10px;
+    margin-right: -10px;
+    /* display: flex;
+    flex-wrap: wrap; */
+}
+
+.footer__container-content-items{
+    /* border: 2px solid black; */
+    /* width: calc(100% / 8); */
+    padding: 0 10px 20px;
+}
+
+.footer__container-content-items-block{
+    background-color: var(--white-color);
+    padding-top: 56%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.footer__container-content-items-img{
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

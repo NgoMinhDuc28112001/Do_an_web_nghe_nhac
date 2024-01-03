@@ -1,0 +1,183 @@
+/* ctrl + shift + R */
+.container{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--primary-color-two);
+}
+
+/* Thiết kế form */
+.form {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+    padding: 20px 40px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.form__link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.form__img {
+    width: 160px;
+}
+
+.form__link span {
+    color: var(--primary-color-one);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* .form__block-input {
+    display: flex;
+    flex-direction: column;
+} */
+
+.from__input-text {
+    /* border: 2px solid red; */
+    margin-top: 10px;
+}
+
+.from__group {
+    /* border: 2px solid red; */
+    position: relative;
+}
+
+.eye,
+.eye-slash {
+    position: absolute;
+    right: 10px;
+    font-size: 1.2rem;
+    color: var(--primary-color-one);
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+}
+
+.eye--show {
+    display: block;
+}
+
+/* .from__input-text .form-message {
+    display: none;
+} */
+
+/* .from__input-text--error .from__input {
+    border: 2px solid red;
+} */
+
+/* .from__input-text--error .from__input::placeholder {
+    color: red;
+} */
+
+/* .from__input-text--error .form-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    display: block;
+} */
+
+.from__input {
+    padding: 0 40px 0 10px;
+    font-size: 1.2rem;
+    width: 260px;
+    height: 30px;
+    border: 2px solid var(--primary-color-one);
+    border-radius: 10px;
+    color: var(--primary-color-one);
+}
+
+.from__input::placeholder {
+    font-size: 1.2rem;
+    color: var(--primary-color-one);
+}
+
+.from__input:focus {
+    outline: none;
+}
+
+.form-message{
+    display: block;
+    margin-top: 10px;
+}
+
+.form-message.form-message--error{
+    color: red;
+}
+
+.form-message.form-message--success{
+    color: green;
+}
+
+.form__question {
+    color: var(--white-color);
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form__question a {
+    text-decoration: none;
+    color: var(--primary-color-one);
+}
+
+.checkbox-text{
+    display: flex;
+}
+
+.checkbox-text span{
+    font-size: 1.2rem;
+    margin-left: 5px;
+    color: var(--white-color);
+}
+
+.checkbox-text span a{
+    text-decoration: none;
+    color: var(--primary-color-one);
+}
+
+.my-checkbox {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.no-remember-pass{
+    margin-top: 20px;
+}
+
+.no-remember-pass a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--primary-color-one);
+}
+
+.form__button {
+    /* border: 2px solid red; */
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form__button button {
+    width: 150px;
+    height: 30px;
+    font-size: 1.4rem;
+    background-color: var(--primary-color-one);
+    border: none;
+    border-radius: 10px;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.form__button button:hover {
+    opacity: 0.8;
+}

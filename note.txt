@@ -1,0 +1,15 @@
+
+
+- Những chỗ cần fix trong đồ án:
+    + Khi người dùng không đăng nhập:
+        - Khi nhấn vào thêm bài hát vào playmusic thì phải chuyển về trang đăng nhập (đã hoàn thành)
+    + Khi người dùng đăng nhập:
+        - Khi search bài hát thì có thể thao tác thêm vào thư viện, xóa khỏi thư viện nếu bài hát search đang nằm trong thư viện,
+        có thể nghe nhạc trực tiếp bài hát khi search. (đang thực thi)    
+
+
+- Những yêu cầu phải làm:
+    + Nhấn vào playlist người dùng đã tạo xong sẽ chuyển sang trang của playlist tương ứng
+        *) Ở đây sẽ có hiển thị ảnh của playlist đó nếu có và những bài hát nghe gần đây để 
+        người dùng có thể thêm vào playlist của bản thân hoặc người dùng có thể nhấn vào search để tìm 
+        đến bài hát mình cần thêm. (đang thực thi).

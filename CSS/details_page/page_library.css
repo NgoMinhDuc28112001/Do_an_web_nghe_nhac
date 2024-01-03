@@ -1,0 +1,963 @@
+/* Phần thân của trang thư viện */
+.content{
+    border: 2px solid red;
+}
+
+/* Phần chứa tiêu đề của trang thư viện */
+.content__title{
+    margin: 0;
+    padding: 40px 0 20px;
+    font-size: 4.0rem;
+    color: var(--white-color);
+}
+
+.content__playlist{
+
+}
+
+.content__playlist-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid red; */
+    padding: 40px 0 20px;
+}
+
+.content__playlist-title-span{
+    font-size: 2.0rem;
+    color: var(--white-color);
+}
+
+.content__playlist-title-span
+i{
+    margin-left: 5px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.content__playlist-title-span
+i:hover{
+    opacity: 1;
+}
+
+.content__playlist-title-all{
+    color: var(--white-color);
+    font-size: 1.4rem;
+    text-decoration: none;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+.content__playlist-title-all
+i{
+    margin-left: 5px;
+}
+
+.content__playlist-title-all:hover{
+    opacity: 1;
+}
+
+.content__playlist-container{
+    /* border: 2px solid red; */
+    overflow: hidden;
+}
+
+.content__playlist-container-list{
+    /* border: 2px solid blue; */
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content__playlist-container-items{
+    /* border: 2px solid black; */
+    width: 20%;
+    padding: 0px 10px 10px;
+}
+
+.content__playlist-container-items-block{
+    width: 100%;
+    /* border: 2px solid yellow; */
+    overflow:  hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.content__playlist-container-items-block:hover
+.content__playlist-container-items-block-img{
+    transform: scale(1.2);
+}
+
+.content__playlist-container-items-block:hover
+.content__playlist-container-items-block-blur{
+    transform: translateY(-100%);
+}
+
+.content__playlist-container-items-block:hover
+.content__playlist-container-items-block-i-items--left{
+    left: 0;
+}
+
+.content__playlist-container-items-block:hover
+.content__playlist-container-items-block-i-items--right{
+    right: 0;
+}
+
+.content__playlist-container-items-block:hover
+.content__playlist-container-items-block-i-items--center{
+    top: 3px;
+}
+
+.content__playlist-container-items-block:hover
+.content__playlist-container-items-block-i{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.content__playlist-container-items-block-img{
+    padding-top: 100%;
+    background-size: cover;
+    background-position: center center;
+    transition: linear 0.3s;
+}
+
+.content__playlist-container-items-block-blur{
+    position: absolute;
+    width: 100%;
+    padding-top: 100%;
+    background-color: var(--black-color);
+    opacity: 0.4;
+    transition: 0.3s linear 0.1s;
+    transform: translateY(0%);
+}
+
+.content__playlist-container-items-block-i{
+    display: flex;
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s linear 0.2s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__playlist-container-items-block-i-items{
+    top: 3px;
+    position: relative;
+    transition: 0.3s linear 0.3s;
+    cursor: pointer;
+}
+
+.content__playlist-container-items-block-i-items
+i{
+    font-size: 1.8rem;
+    color: var(--white-color);
+    opacity: 0.8;
+}
+
+.content__playlist-container-items-block-i-items
+i:hover{
+    opacity: 1;
+}
+
+.content__playlist-container-items-block-i-items--center
+i{
+    font-size: 5.0rem;
+    display: none;
+}
+
+.content__playlist-container-items-block-i-items--center
+.content__playlist-container-items-block-i-items--show
+{
+    display: block;
+}
+
+.content__playlist-container-items-block-i-items--center{
+    top: 23px;
+}
+
+.content__playlist-container-items-block-i-items--left
+{
+    left: -20px;
+}
+
+.content__playlist-container-items-block-i-items--left
+i{
+    display: none;
+}
+
+.content__playlist-container-items-block-i-items--left
+.content__playlist-container-items-block-i-items-i--show{
+    display: block;
+}
+
+.content__playlist-container-items-block-i-items--left
+.content__playlist-container-items-block-i-items--color{
+    color: var(--primary-color-one);
+}
+
+.content__playlist-container-items-block-i-items--right
+{
+    right: -20px;
+}
+
+.content__playlist-container-items-span-name-song{
+    display: block;
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: var(--white-color);
+    opacity: 0.8;
+    margin-top: 10px;
+    font-weight: bold;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.content__playlist-container-items-span-name-song:hover{
+    opacity: 1;
+}
+
+/* Phần chứa tab-UI */
+.content__tab{
+    overflow: hidden;
+    /* border: 2px solid red; */
+    padding: 40px 0 20px;
+}
+
+.content__tab-list{
+    /* border: 2px solid blue; */
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.content__tab-items{
+    margin: 0 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.content__tab-items:hover
+.content__tab-items-span{
+    opacity: 1;
+}
+
+.content__tab-items:hover
+.content__tab-items-space{
+    left: 0;
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__tab-items-span{
+    font-size: 2.0rem;
+    color: var(--white-color);
+    opacity: 0.8;
+    display: block;
+    padding: 10px 0;
+}
+
+.content__tab-items-space{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--primary-color-one);
+    height: 3px;
+    left: 50%;
+    right: 50%;
+    transition: 0.3s linear;
+}
+
+.content__tab-items.content__tab-items--active
+.content__tab-items-span{
+    opacity: 1;
+}
+
+.content__tab-items.content__tab-items--active
+.content__tab-items-space{
+    left: 0;
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Nội dung của phần tab */
+.content__tab-content{
+    /* border: 2px solid red; */
+}
+
+.content__tab-content-list{
+    /* border: 2px solid blue; */
+    list-style: none;
+}
+
+.content__tab-content-items{
+    /* border: 2px solid black; */
+    display: none;
+}
+
+.content__tab-content-items.content__tab-content-items--active{
+    display: block;
+}
+
+.content__tab-content-items-button{
+    /* border: 2px solid yellow; */
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.content__tab-content-items-button-items{
+    font-size: 1.6rem;
+    color: var(--white-color);
+    border: 2px solid var(--white-color);
+    width: 100px;
+    max-width: 100%;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.content__tab-content-items-button-items.content__tab-content-items-button-items--active{
+    background-color: var(--primary-color-one);
+    border: 2px solid var(--primary-color-one);
+    opacity: 1;
+}
+
+.content__tab-content-items-button-items:hover{
+    opacity: 1;
+}
+
+.content__tab-content-items-button-items:not(.content__tab-content-items-button-items:first-child){
+    margin-left: 20px;
+}
+
+.content__tab-content-items-button-items-span{
+    position: relative;
+    top: 1px;
+}
+
+.content__tab-content-items-recently-song-container{
+    /* border: 2px solid red; */
+}
+
+/* Trường hợp không có bài hát nào thì sẽ ẩn phần "content__tab-content-items-recently-song-list" */
+.content__tab-content-items-recently-song-container.content__tab-content-items-recently-song-container--no-song
+.content__tab-content-items-recently-song-list{
+    display: none;
+}
+
+.content__tab-content-items-recently-song-container.content__tab-content-items-recently-song-container--no-song
+.content__tab-content-items-recently-song-null{
+    display: flex;
+}
+
+.content__tab-content-items-recently-song-list{
+    list-style: none;
+    /* border: 2px solid blue; */
+}
+
+.content__tab-content-items-recently-song-items{
+    /* border: 2px solid black; */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--white-color);
+}
+
+.content__tab-content-items-recently-song-items-img-text{
+    /* border: 2px solid red; */
+    display: flex;
+}
+
+.content__tab-content-items-recently-song-items-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.content__tab-content-items-recently-song-items-img:hover::before{
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: var(--black-color);
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.content__tab-content-items-recently-song-items-img:hover
+.content__tab-content-items-recently-song-items-img-i{
+    display: block;
+}
+
+.content__tab-content-items-recently-song-items-img-i{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    /* border: 2px solid red; */
+    display: none;
+}
+
+.content__tab-content-items-recently-song-items-img-i i{
+    font-size: 1.2rem;
+    color: var(--white-color);
+    display: none;
+}
+
+.content__tab-content-items-recently-song-items-img-i
+.content__tab-content-items-recently-song-items-img-i--show
+{
+    display: block;
+}
+
+.content__tab-content-items-recently-song-items-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 10px;
+    /* border: 2px solid red; */
+}
+
+.content__tab-content-items-recently-song-items-text-span{
+    font-size: 1.6rem;
+    color: var(--white-color);
+    display: block;
+}
+
+.content__tab-content-items-recently-song-items-text-links-singer{
+    font-size: 1.2rem;
+    color: var(--white-color);
+    display: block;
+    margin-top: 2px;
+}
+
+.content__tab-content-items-recently-song-items-text-links-singer-items{
+    text-decoration: none;
+    color: var(--white-color);
+    opacity: 0.8;
+}
+
+.content__tab-content-items-recently-song-items-text-links-singer-items:hover{
+    opacity: 1;
+}
+
+.content__tab-content-items-recently-song-items-icon{
+    display: flex;
+    /* border: 2px solid red; */
+    align-items: center;
+}
+
+.content__tab-content-items-recently-song-items-icon-block{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.content__tab-content-items-recently-song-items-icon-block:hover{
+    background-color: var(--primary-color-two);
+}
+
+.content__tab-content-items-recently-song-items-icon-block
+i{
+    position: relative;
+    top: 1px;
+    font-size: 1.4rem;
+    color: var(--white-color);
+}
+
+.content__tab-content-items-recently-song-items-icon-block--heart
+.content__tab-content-items-recently-song-items-icon-block-i--color{
+    color: var(--primary-color-one);
+}
+
+.content__tab-content-items-recently-song-items-icon-block--heart
+i{
+    display: none;
+}
+
+.content__tab-content-items-recently-song-items-icon-block--heart
+.content__tab-content-items-recently-song-items-icon-block-i--show{
+    display: block;
+}
+
+/* Phần bài hát gần đây khi mà không có bài hát nào */
+.content__tab-content-items-recently-song-null{
+    /* border: 2px solid black; */
+    min-height: 220px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--primary-color-two);
+    border-radius: 10px;
+}
+
+.content__tab-content-items-recently-song-null
+span{
+    font-size: 1.8rem;
+    color: #b3b3b3;
+    display: block;
+    margin-top: 20px;
+}
+
+/* Phần chưa playlist phát gần đây */
+.content__tab-content-items-recently-playlist-container{
+    /* border: 2px solid red; */
+    overflow: hidden;
+}
+
+.content__tab-content-items-recently-playlist-list{
+    list-style: none;
+    /* border: 2px solid blue; */
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content__tab-content-items-recently-playlist-items{
+    /* border: 2px solid black; */
+    width: calc(100% / 5);
+    padding: 0 10px 10px;
+}
+
+.content__tab-content-items-recently-playlist-items-block{
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.content__tab-content-items-recently-playlist-items-block:hover
+.content__tab-content-items-recently-playlist-items-img{
+    transform: scale(1.2);
+}
+
+.content__tab-content-items-recently-playlist-items-block:hover
+.content__tab-content-items-recently-playlist-items-blur{
+    top: 0;
+}
+
+.content__tab-content-items-recently-playlist-items-block:hover
+.content__tab-content-items-recently-playlist-items-icon{
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__tab-content-items-recently-playlist-items-block:hover
+.content__tab-content-items-recently-playlist-items-i--left{
+    left: 0px;
+}
+
+.content__tab-content-items-recently-playlist-items-block:hover
+.content__tab-content-items-recently-playlist-items-i--center{
+    top: 3px;
+}
+
+.content__tab-content-items-recently-playlist-items-block:hover
+.content__tab-content-items-recently-playlist-items-i--right{
+    right: 0px;
+}
+
+.content__tab-content-items-recently-playlist-items-img{
+    padding-top: 100%;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.3s linear;
+}
+
+.content__tab-content-items-recently-playlist-items-blur{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    background-color: var(--black-color);
+    opacity: 0.4;
+    transition: 0.3s linear 0.1s;
+}
+
+.content__tab-content-items-recently-playlist-items-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    /* border: 2px solid red; */
+    width: 80%;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s linear 0.2s;
+}
+
+.content__tab-content-items-recently-playlist-items-i{
+    position: relative;
+    top: 3px;
+    transition: 0.3s linear 0.3s;
+}
+
+.content__tab-content-items-recently-playlist-items-i
+i{
+    font-size: 1.8rem;
+    color: var(--white-color);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.content__tab-content-items-recently-playlist-items-i
+i:hover{
+    opacity: 1;
+}
+
+.content__tab-content-items-recently-playlist-items-i--center
+i{
+    font-size: 5.0rem;
+}
+
+.content__tab-content-items-recently-playlist-items-i--left
+i,
+.content__tab-content-items-recently-playlist-items-i--center
+i
+{
+    display: none;
+}
+
+.content__tab-content-items-recently-playlist-items-i--left
+.content__tab-content-items-recently-playlist-items-i--color{
+    color: var(--primary-color-one);
+}
+
+.content__tab-content-items-recently-playlist-items-i--left
+.content__tab-content-items-recently-playlist-items-i--show,
+.content__tab-content-items-recently-playlist-items-i--center
+.content__tab-content-items-recently-playlist-items-i--show{
+    display: block;
+}
+
+.content__tab-content-items-recently-playlist-items-i--left{
+    left: -20px;
+}
+
+.content__tab-content-items-recently-playlist-items-i--center{
+    top: 23px;
+}
+
+.content__tab-content-items-recently-playlist-items-i--right{
+    right: -20px;
+}
+
+.content__tab-content-items-recently-playlist-items-text{
+    padding-top: 10px;
+}
+
+.content__tab-content-items-recently-playlist-items-text-link{
+    font-size: 1.6rem;
+    color: var(--white-color);
+    opacity: 0.8;
+    font-weight: bold;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.content__tab-content-items-recently-playlist-items-text-link:hover{
+    opacity: 1;
+}
+
+/* Phần chứa khi không có playlist nào phát gần đây */
+.content__tab-content-items-recently-playlist-null{
+    min-height: 220px;
+    background-color: var(--primary-color-two);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.content__tab-content-items-recently-playlist-null
+span{
+    font-size: 1.8rem;
+    color: #b3b3b3;
+    display: block;
+    margin-top: 20px;
+}
+
+.content__tab-content-items-recently-playlist-container.content__tab-content-items-recently-playlist-container--no-playlist
+.content__tab-content-items-recently-playlist-list{
+    display: none;
+}
+
+.content__tab-content-items-recently-playlist-container.content__tab-content-items-recently-playlist-container--no-playlist
+.content__tab-content-items-recently-playlist-null{
+    display: flex;
+}
+
+/* Phần chứa những MV phát gần đây */
+.content__tab-content-items-recently-MV-container{
+    overflow: hidden;
+}
+
+.content__tab-content-items-recently-MV-list{
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content__tab-content-items-recently-MV-items{
+    width: calc(100% / 3);
+    /* border: 2px solid black; */
+    padding: 0 10px;
+}
+
+.content__tab-content-items-recently-MV-items-block{
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.content__tab-content-items-recently-MV-items-block:hover
+.content__tab-content-items-recently-MV-items-img{
+    transform: scale(1.2);
+}
+
+.content__tab-content-items-recently-MV-items-block:hover
+.content__tab-content-items-recently-MV-items-blur{
+    top: 0;
+}
+
+.content__tab-content-items-recently-MV-items-block:hover
+.content__tab-content-items-recently-MV-items-play-pause{
+    opacity: 1;
+    visibility: visible;
+    top: calc(50% + 3px);
+}
+
+.content__tab-content-items-recently-MV-items-block:hover
+.content__tab-content-items-recently-MV-items-close{
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__tab-content-items-recently-MV-items-img{
+    padding-top: 60%;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.3s linear;
+}
+
+.content__tab-content-items-recently-MV-items-blur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-color);
+    opacity: 0.4;
+    top: 100%;
+    transition: 0.3s linear 0.1s;
+}
+
+.content__tab-content-items-recently-MV-items-play-pause{
+    position: absolute;
+    top: calc(50% + 23px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s linear 0.2s;
+}
+
+.content__tab-content-items-recently-MV-items-play-pause
+i{
+    font-size: 5.0rem;
+    color: var(--white-color);
+    display: none;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.content__tab-content-items-recently-MV-items-play-pause
+i:hover{
+    opacity: 1;
+}
+
+.content__tab-content-items-recently-MV-items-play-pause
+.content__tab-content-items-recently-MV-items-play-pause--show
+{
+    display: block;
+}
+
+.content__tab-content-items-recently-MV-items-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    visibility: visible;
+    transition: 0.3s linear 0.3s;
+}
+
+.content__tab-content-items-recently-MV-items-close
+i{
+    font-size: 2.8rem;
+    color: var(--white-color);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.content__tab-content-items-recently-MV-items-close
+i:hover{
+    opacity: 1;
+}
+
+.content__tab-content-items-recently-MV-items-time{
+    padding: 4px 5px;
+    background-color: var(--black-color);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.content__tab-content-items-recently-MV-items-time-span{
+    color: var(--white-color);
+    font-size: 1.4rem;
+    position: relative;
+    top: 1px;
+}
+
+.content__tab-content-items-recently-MV-items-text{
+    display: flex;
+    padding: 10px;
+}
+
+.content__tab-content-items-recently-MV-items-text-img{
+    min-width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+}
+
+.content__tab-content-items-recently-MV-items-text-song-singer{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    flex: 1;
+}
+
+.content__tab-content-items-recently-MV-items-text-song{
+    font-size: 1.6rem;
+}
+
+.content__tab-content-items-recently-MV-items-text-song,
+.content__tab-content-items-recently-MV-items-text-singer{
+    color: var(--white-color);
+    text-decoration: none;
+    opacity: 0.8;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.content__tab-content-items-recently-MV-items-text-singer{
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.content__tab-content-items-recently-MV-items-text-song:hover,
+.content__tab-content-items-recently-MV-items-text-singer:hover{
+    opacity: 1;
+}
+
+/* Trường hợp không có MV nào được phát gần đây */
+.content__tab-content-items-recently-MV-container.content__tab-content-items-recently-MV-container--no-MV
+.content__tab-content-items-recently-MV-list{
+    display: none;
+}
+
+.content__tab-content-items-recently-MV-container.content__tab-content-items-recently-MV-container--no-MV
+.content__tab-content-items-recently-MV-null{
+    display: flex;
+}
+
+.content__tab-content-items-recently-MV-null{
+    background-color: var(--primary-color-two);
+    min-height: 220px;
+    border-radius: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content__tab-content-items-recently-MV-null
+span{
+    font-size: 1.8rem;
+    color: #b3b3b3;
+    display: block;
+    margin-top: 20px;
+}
+
+/* Class làm cho tất cả các tab của phát gần đây ẩn đi */
+.content__tab-content-items-recently-tab-container{
+    display: none;
+}
+/* Kích hoạt tab được chọn */
+.content__tab-content-items-recently-tab-container.content__tab-content-items-recently-tab-container--active
+{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,444 @@
+.content{
+    /* border: 2px solid red; */
+    display: flex;
+    padding-top: 40px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+/* Phần content bên trái */
+.content__left{
+    /* border: 2px solid black; */
+    flex: 3;
+    padding: 0 10px;
+}
+
+.content__left-block{
+    padding-top: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.content__left-block:hover
+.content__left-block-img{
+    transform: scale(1.2);
+}
+
+.content__left-block:hover
+.content__left-block-blur{
+    top: 0;
+}
+
+.content__left-block:hover
+.content__left-block-icon{
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__left-block:hover
+.content__left-block-icon-items.content__left-block-icon-items--left{
+    left: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__left-block:hover
+.content__left-block-icon-items.content__left-block-icon-items--center{
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__left-block:hover
+.content__left-block-icon-items.content__left-block-icon-items--right{
+    right: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content__left-block-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    transition: 0.3s linear;
+}
+
+.content__left-block-blur{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black-color);
+    opacity: 0.8;
+    transition: 0.3s linear 0.1s;
+}
+
+.content__left-block-icon{
+    position: absolute;
+    width: 80%;
+    /* border: 2px solid red; */
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* opacity: 0;
+    visibility: hidden; */
+}
+
+.content__left-block-icon-items{
+    transition: 0.3s linear 0.2s;
+    position: relative;
+}
+
+.content__left-block-icon-items
+i{
+    font-size: 2.2rem;
+    color: var(--white-color);
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.content__left-block-icon-items
+i:hover{
+    opacity: 1;
+}
+
+.content__left-block-icon-items.content__left-block-icon-items--large
+i{
+    font-size: 5.4rem;
+}
+
+.content__left-block-icon-items.content__left-block-icon-items--left{
+    left: -40px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__left-block-icon-items.content__left-block-icon-items--center{
+    top: 40px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__left-block-icon-items.content__left-block-icon-items--right{
+    right: -40px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content__left-text{
+    padding: 15px 0px;
+}
+
+.content__left-text-title{
+    color: var(--white-color);
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.content__left-text-title
+i{
+    font-size: 1.8rem;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.content__left-text-title
+i:hover{
+    opacity: 1;
+}
+
+.content__left-text-user{
+    color: var(--white-color);
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.content__left-text-user
+span{
+    opacity: 0.6;
+}
+
+
+/* Phần content bên phải */
+.content__right{
+    /* border: 2px solid blue; */
+    flex: 9;
+    padding: 0 10px;
+}
+
+.content__right-title
+h5{
+    color: var(--white-color);
+    font-size: 2.2rem;
+}
+
+.content__right-block--no-songs{
+    /* border: 2px solid black; */
+    background-color: var(--primary-color-two);
+    border-radius: 10px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.content__right-block--no-songs i{
+    color: var(--white-color);
+    font-size: 4.0rem;
+}
+
+.content__right-block--no-songs
+span{
+    color: var(--white-color);
+    font-size: 1.4rem;
+    display: block;
+    padding-top: 10px;
+}
+
+.content__right-name-column{
+    /* border: 2px solid black; */
+    margin-top: 20px;
+    display: flex;
+    padding: 0 10px;
+}
+
+.content__right-name-column-left{
+    flex: 2;
+    color: var(--white-color);
+    /* border: 2px solid black; */
+    font-size: 1.4rem;
+}
+
+.content__right-name-column-center{
+    flex: 1;
+    color: var(--white-color);
+    text-align: center;
+    /* border: 2px solid black; */
+    font-size: 1.4rem;
+}
+
+.content__right-name-column-right{
+    flex: 2;
+    color: var(--white-color);
+    /* border: 2px solid black; */
+    font-size: 1.4rem;
+}
+
+.content__right-block{
+    margin-top: 10px;
+}
+
+.content__right-block-list{
+    list-style: none;
+}
+
+.content__right-block-items{
+    /* border: 2px solid red; */
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.content__right-block-items:hover{
+    background-color: var(--primary-color-two);
+}
+
+.content__right-block-items:hover
+.content__right-block-items-left-block-blur{
+    top: 0;
+}
+
+.content__right-block-items:hover
+.content__right-block-items-left-block-icon{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Phần bên trái của content__right-block-items */
+.content__right-block-items-left{
+    display: flex;
+    flex: 2;
+}
+
+.content__right-block-items-left-block{
+    min-width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.content__right-block-items-left-block-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.content__right-block-items-left-block-blur{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black-color);
+    opacity: 0.6;
+    transition: 0.3s linear;
+}
+
+.content__right-block-items-left-block-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s linear 0.1s;
+}
+
+.content__right-block-items-left-block-icon
+i{
+    color: var(--white-color);
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.content__right-block-items-left-block-icon
+i:hover{
+    opacity: 1;
+}
+
+.content__right-block-items-left-text{
+    /* border: 2px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.content__right-block-items-left-text-nameSong{
+    color: var(--white-color);
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.content__right-block-items-left-text-nameArtist{
+    color: var(--white-color);
+    font-size: 1.2rem;
+    margin-top: 2px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+/* Phần ở giữa của content__right-block-items */
+.content__right-block-items-center{
+    flex: 1;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+/* Phần bên phải của content__right-block-items */
+.content__right-block-items-right{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.content__right-block-items-right-items{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    /* background-color: aqua; */
+}
+
+.content__right-block-items-right-items
+i{
+    color: var(--white-color);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.content__right-block-items-right-items
+i:hover{
+    opacity: 1;
+}
+
+.content__right-suggest-title{
+    display: flex;
+    padding: 10px 0 0;
+    /* border: 2px solid red; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content__right-suggest-title h5{
+    font-size: 2.0rem;
+    color: var(--white-color);
+}
+
+.content__right-suggest-title h5
+span{
+    font-size: 1.4rem;
+    opacity: 0.6;
+}
+
+.content__right-suggest-title-update{
+    padding: 5px 10px;
+    background-color: var(--primary-color-one);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.content__right-suggest-title-update
+i{
+    color: var(--white-color);
+    position: relative;
+    top: 1px;
+}
+
+.content__right-suggest-title-update span{
+    color: var(--white-color);
+    font-size: 1.4rem;
+    display: block;
+    margin-left: 5px;
+}
+
+
+
