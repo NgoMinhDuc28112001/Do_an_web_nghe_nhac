@@ -35,6 +35,19 @@
     <?php
         include('../Link/link_main.php')
     ?>
+    <!-- Thông báo lỗi của update image -->
+    <?php
+        if(!empty($errorUploadImage['message']))
+        {
+            echo "<script>";
+            echo "setTimeout(function() {";
+            echo "    alert('";
+            echo $errorUploadImage['message'];
+            echo "    ');";
+            echo "}, 2000);"; // 5000 milliseconds tương ứng với 5 giây
+            echo "</script>";
+        }
+    ?>
 </head>
 <body>
     <!-- Khối bao tất cả -->
@@ -183,7 +196,7 @@
             </div>
             <!-- div chứa add playlist -->
             <?php if(!empty($user)) { ?>
-                <div class="menu__playlist">
+                <div title="Tạo playlist mới" class="menu__playlist">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
                             fill-rule="evenodd"
@@ -202,7 +215,7 @@
                     <span class="menu__playlist-span">Tạo playlist mới</span>
                 </div>
             <?php } else {?>
-                <a href="page_login.php" class="menu__playlist">
+                <a title="Tạo playlist mới" href="page_login.php" class="menu__playlist">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
                             fill-rule="evenodd"
@@ -291,17 +304,17 @@
                                                     <?php }?>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023[$i]['id'] ?>" onclick="playSong('audio<?php echo $newResultHot2023[$i]['id'] ?>','play<?php echo $newResultHot2023[$i]['id'] ?>','pause<?php echo $newResultHot2023[$i]['id'] ?>','blurSong<?php echo $newResultHot2023[$i]['id'] ?>','blockIcon<?php echo $newResultHot2023[$i]['id'] ?>','liked<?php echo $newResultHot2023[$i]['id'] ?>','disliked<?php echo $newResultHot2023[$i]['id'] ?>','ellipsis<?php echo $newResultHot2023[$i]['id'] ?>')" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023[$i]['id'] ?>" onclick="pauseSong('audio<?php echo $newResultHot2023[$i]['id'] ?>','play<?php echo $newResultHot2023[$i]['id'] ?>','pause<?php echo $newResultHot2023[$i]['id'] ?>','blurSong<?php echo $newResultHot2023[$i]['id'] ?>','blockIcon<?php echo $newResultHot2023[$i]['id'] ?>','liked<?php echo $newResultHot2023[$i]['id'] ?>','disliked<?php echo $newResultHot2023[$i]['id'] ?>','ellipsis<?php echo $newResultHot2023[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023[$i]['id'] ?>" onclick="playSong('<?php echo $newResultHot2023[$i]['id'] ?>')" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023[$i]['id'] ?>" onclick="pauseSong('<?php echo $newResultHot2023[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <i id="ellipsis<?php echo $newResultHot2023[$i]['id'] ?>" class="fa-solid fa-ellipsis icon--active"></i>
                                                     <ul class="content__block-container-items-block-icon--child-list">
                                                         <li class="content__block-container-items-block-icon--child-items">
-                                                            <i id="add-playMusic" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" title="Thêm vào playlist" class="icon ic-add-play-now icon--active"></i>
+                                                            <i id="add-playMusic" data-id="<?php echo $newResultHot2023[$i]['id']?>" title="Thêm vào media player" class="icon ic-add-play-now icon--active"></i>
                                                         </li>
                                                         <li class="content__block-container-items-block-icon--child-items">
-                                                            <i data-id="<?php echo $newResultHot2023[$i]['id'] ?>" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
+                                                            <i onclick="handleDownloadSong('<?php echo $newResultHot2023[$i]['Link128']?>','<?php echo $newResultHot2023[$i]['Link320']?>')" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -343,8 +356,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="playSongNoUser('audio<?php echo $newResultHot2023NoUser[$i]['id'] ?>','play<?php echo $newResultHot2023NoUser[$i]['id'] ?>','pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>','blurSong<?php echo $newResultHot2023NoUser[$i]['id'] ?>','blockIcon<?php echo $newResultHot2023NoUser[$i]['id'] ?>','liked<?php echo $newResultHot2023NoUser[$i]['id'] ?>','ellipsis<?php echo $newResultHot2023NoUser[$i]['id'] ?>')" data-id="<?php echo $newResultHot2023NoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="pauseSongNoUser('audio<?php echo $newResultHot2023NoUser[$i]['id'] ?>','play<?php echo $newResultHot2023NoUser[$i]['id'] ?>','pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>','blurSong<?php echo $newResultHot2023NoUser[$i]['id'] ?>','blockIcon<?php echo $newResultHot2023NoUser[$i]['id'] ?>','liked<?php echo $newResultHot2023NoUser[$i]['id'] ?>','ellipsis<?php echo $newResultHot2023NoUser[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="playSongNoUser(<?php echo $newResultHot2023NoUser[$i]['id'] ?>)" data-id="<?php echo $newResultHot2023NoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="pauseSongNoUser(<?php echo $newResultHot2023NoUser[$i]['id'] ?>)" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <a id="ellipsis<?php echo $newResultHot2023NoUser[$i]['id'] ?>" href="page_login.php" class="content__block-container-items-block-icon-i-link">
@@ -378,7 +391,7 @@
                                         </div>
                                     </div>
                                     <!-- Link audio lấy id bằng các audio rồi chèn vào id của nó trong mysql -->
-                                    <audio id="audio<?php echo $newResultHot2023NoUser[$i]['id'] ?>" src="<?php echo $newResultHot2023NoUser[$i]['Link320']?>"></audio>
+                                    <audio id="audio<?php echo $newResultHot2023NoUser[$i]['id'] ?>" src="<?php echo $newResultHot2023NoUser[$i]['Link128']?>"></audio>
                                 <?php }?>
                             <?php }?>
                         </div>
@@ -420,17 +433,17 @@
                                                     <?php }?>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultChill[$i]['id'] ?>" onclick="playSong('audio<?php echo $newResultChill[$i]['id'] ?>','play<?php echo $newResultChill[$i]['id'] ?>','pause<?php echo $newResultChill[$i]['id'] ?>','blurSong<?php echo $newResultChill[$i]['id'] ?>','blockIcon<?php echo $newResultChill[$i]['id'] ?>','liked<?php echo $newResultChill[$i]['id'] ?>','disliked<?php echo $newResultChill[$i]['id'] ?>','ellipsis<?php echo $newResultChill[$i]['id'] ?>')" data-id="<?php echo $newResultChill[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultChill[$i]['id'] ?>" onclick="pauseSong('audio<?php echo $newResultChill[$i]['id'] ?>','play<?php echo $newResultChill[$i]['id'] ?>','pause<?php echo $newResultChill[$i]['id'] ?>','blurSong<?php echo $newResultChill[$i]['id'] ?>','blockIcon<?php echo $newResultChill[$i]['id'] ?>','liked<?php echo $newResultChill[$i]['id'] ?>','disliked<?php echo $newResultChill[$i]['id'] ?>','ellipsis<?php echo $newResultChill[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultChill[$i]['id'] ?>" onclick="playSong('<?php echo $newResultChill[$i]['id'] ?>')" data-id="<?php echo $newResultChill[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultChill[$i]['id'] ?>" onclick="pauseSong('<?php echo $newResultChill[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <i id="ellipsis<?php echo $newResultChill[$i]['id'] ?>" class="fa-solid fa-ellipsis icon--active"></i>
                                                     <ul class="content__block-container-items-block-icon--child-list">
                                                         <li class="content__block-container-items-block-icon--child-items">
-                                                            <i id="add-playMusic" data-id="<?php echo $newResultChill[$i]['id'] ?>" title="Thêm vào playlist" class="icon ic-add-play-now icon--active"></i>
+                                                            <i id="add-playMusic" data-id="<?php echo $newResultChill[$i]['id']?>" title="Thêm vào media player" class="icon ic-add-play-now icon--active"></i>
                                                         </li>
                                                         <li class="content__block-container-items-block-icon--child-items">
-                                                            <i data-id="<?php echo $newResultChill[$i]['id'] ?>" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
+                                                            <i onclick="handleDownloadSong('<?php echo $newResultChill[$i]['Link128']?>','<?php echo $newResultChill[$i]['Link320']?>')" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -472,8 +485,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultChillNoUser[$i]['id'] ?>" onclick="playSongNoUser('audio<?php echo $newResultChillNoUser[$i]['id'] ?>','play<?php echo $newResultChillNoUser[$i]['id'] ?>','pause<?php echo $newResultChillNoUser[$i]['id'] ?>','blurSong<?php echo $newResultChillNoUser[$i]['id'] ?>','blockIcon<?php echo $newResultChillNoUser[$i]['id'] ?>','liked<?php echo $newResultChillNoUser[$i]['id'] ?>','ellipsis<?php echo $newResultChillNoUser[$i]['id'] ?>')" data-id="<?php echo $newResultChillNoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultChillNoUser[$i]['id'] ?>" onclick="pauseSongNoUser('audio<?php echo $newResultChillNoUser[$i]['id'] ?>','play<?php echo $newResultChillNoUser[$i]['id'] ?>','pause<?php echo $newResultChillNoUser[$i]['id'] ?>','blurSong<?php echo $newResultChillNoUser[$i]['id'] ?>','blockIcon<?php echo $newResultChillNoUser[$i]['id'] ?>','liked<?php echo $newResultChillNoUser[$i]['id'] ?>','ellipsis<?php echo $newResultChillNoUser[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultChillNoUser[$i]['id'] ?>" onclick="playSongNoUser(<?php echo $newResultChillNoUser[$i]['id'] ?>)" data-id="<?php echo $newResultChillNoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultChillNoUser[$i]['id'] ?>" onclick="pauseSongNoUser(<?php echo $newResultChillNoUser[$i]['id'] ?>)" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <a id="ellipsis<?php echo $newResultChillNoUser[$i]['id'] ?>" href="page_login.php" class="content__block-container-items-block-icon-i-link">
@@ -507,7 +520,7 @@
                                         </div>
                                     </div>
                                     <!-- Link audio lấy id bằng các audio rồi chèn vào id của nó trong mysql -->
-                                    <audio id="audio<?php echo $newResultChillNoUser[$i]['id'] ?>" src="<?php echo $newResultChillNoUser[$i]['Link320']?>"></audio>
+                                    <audio id="audio<?php echo $newResultChillNoUser[$i]['id'] ?>" src="<?php echo $newResultChillNoUser[$i]['Link128']?>"></audio>
                                 <?php }?>
                             <?php }?>
                         </div>
@@ -549,17 +562,17 @@
                                                     <?php }?>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultSad[$i]['id'] ?>" onclick="playSong('audio<?php echo $newResultSad[$i]['id'] ?>','play<?php echo $newResultSad[$i]['id'] ?>','pause<?php echo $newResultSad[$i]['id'] ?>','blurSong<?php echo $newResultSad[$i]['id'] ?>','blockIcon<?php echo $newResultSad[$i]['id'] ?>','liked<?php echo $newResultSad[$i]['id'] ?>','disliked<?php echo $newResultSad[$i]['id'] ?>','ellipsis<?php echo $newResultSad[$i]['id'] ?>')" data-id="<?php echo $newResultSad[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultSad[$i]['id'] ?>" onclick="pauseSong('audio<?php echo $newResultSad[$i]['id'] ?>','play<?php echo $newResultSad[$i]['id'] ?>','pause<?php echo $newResultSad[$i]['id'] ?>','blurSong<?php echo $newResultSad[$i]['id'] ?>','blockIcon<?php echo $newResultSad[$i]['id'] ?>','liked<?php echo $newResultSad[$i]['id'] ?>','disliked<?php echo $newResultSad[$i]['id'] ?>','ellipsis<?php echo $newResultSad[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultSad[$i]['id'] ?>" onclick="playSong('<?php echo $newResultSad[$i]['id'] ?>')" data-id="<?php echo $newResultSad[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultSad[$i]['id'] ?>" onclick="pauseSong('<?php echo $newResultSad[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <i id="ellipsis<?php echo $newResultSad[$i]['id'] ?>" class="fa-solid fa-ellipsis icon--active"></i>
                                                     <ul class="content__block-container-items-block-icon--child-list">
                                                         <li class="content__block-container-items-block-icon--child-items">
-                                                            <i id="add-playMusic" data-id="<?php echo $newResultSad[$i]['id'] ?>" title="Thêm vào playlist" class="icon ic-add-play-now icon--active"></i>
+                                                            <i id="add-playMusic" data-id="<?php echo $newResultSad[$i]['id']?>" title="Thêm vào media player" class="icon ic-add-play-now icon--active"></i>
                                                         </li>
                                                         <li class="content__block-container-items-block-icon--child-items">
-                                                            <i data-id="<?php echo $newResultSad[$i]['id'] ?>" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
+                                                            <i onclick="handleDownloadSong('<?php echo $newResultSad[$i]['Link128']?>','<?php echo $newResultSad[$i]['Link320']?>')" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -601,8 +614,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultSadNoUser[$i]['id'] ?>" onclick="playSongNoUser('audio<?php echo $newResultSadNoUser[$i]['id'] ?>','play<?php echo $newResultSadNoUser[$i]['id'] ?>','pause<?php echo $newResultSadNoUser[$i]['id'] ?>','blurSong<?php echo $newResultSadNoUser[$i]['id'] ?>','blockIcon<?php echo $newResultSadNoUser[$i]['id'] ?>','liked<?php echo $newResultSadNoUser[$i]['id'] ?>','ellipsis<?php echo $newResultSadNoUser[$i]['id'] ?>')" data-id="<?php echo $newResultSadNoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultSadNoUser[$i]['id'] ?>" onclick="pauseSongNoUser('audio<?php echo $newResultSadNoUser[$i]['id'] ?>','play<?php echo $newResultSadNoUser[$i]['id'] ?>','pause<?php echo $newResultSadNoUser[$i]['id'] ?>','blurSong<?php echo $newResultSadNoUser[$i]['id'] ?>','blockIcon<?php echo $newResultSadNoUser[$i]['id'] ?>','liked<?php echo $newResultSadNoUser[$i]['id'] ?>','ellipsis<?php echo $newResultSadNoUser[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultSadNoUser[$i]['id'] ?>" onclick="playSongNoUser(<?php echo $newResultSadNoUser[$i]['id'] ?>)" data-id="<?php echo $newResultSadNoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultSadNoUser[$i]['id'] ?>" onclick="pauseSongNoUser(<?php echo $newResultSadNoUser[$i]['id'] ?>)" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <a id="ellipsis<?php echo $newResultSadNoUser[$i]['id'] ?>" href="page_login.php" class="content__block-container-items-block-icon-i-link">
@@ -636,7 +649,7 @@
                                         </div>
                                     </div>
                                     <!-- Link audio lấy id bằng các audio rồi chèn vào id của nó trong mysql -->
-                                    <audio id="audio<?php echo $newResultSadNoUser[$i]['id'] ?>" src="<?php echo $newResultSadNoUser[$i]['Link320']?>"></audio>
+                                    <audio id="audio<?php echo $newResultSadNoUser[$i]['id'] ?>" src="<?php echo $newResultSadNoUser[$i]['Link128']?>"></audio>
                                 <?php }?>
                             <?php }?>
                         </div>
@@ -678,17 +691,17 @@
                                                     <?php }?>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultRemix[$i]['id'] ?>" onclick="playSong('audio<?php echo $newResultRemix[$i]['id'] ?>','play<?php echo $newResultRemix[$i]['id'] ?>','pause<?php echo $newResultRemix[$i]['id'] ?>','blurSong<?php echo $newResultRemix[$i]['id'] ?>','blockIcon<?php echo $newResultRemix[$i]['id'] ?>','liked<?php echo $newResultRemix[$i]['id'] ?>','disliked<?php echo $newResultRemix[$i]['id'] ?>','ellipsis<?php echo $newResultRemix[$i]['id'] ?>')" data-id="<?php echo $newResultRemix[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultRemix[$i]['id'] ?>" onclick="pauseSong('audio<?php echo $newResultRemix[$i]['id'] ?>','play<?php echo $newResultRemix[$i]['id'] ?>','pause<?php echo $newResultRemix[$i]['id'] ?>','blurSong<?php echo $newResultRemix[$i]['id'] ?>','blockIcon<?php echo $newResultRemix[$i]['id'] ?>','liked<?php echo $newResultRemix[$i]['id'] ?>','disliked<?php echo $newResultRemix[$i]['id'] ?>','ellipsis<?php echo $newResultRemix[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultRemix[$i]['id'] ?>" onclick="playSong('<?php echo $newResultRemix[$i]['id'] ?>')" data-id="<?php echo $newResultRemix[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultRemix[$i]['id'] ?>" onclick="pauseSong('<?php echo $newResultRemix[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <i id="ellipsis<?php echo $newResultRemix[$i]['id'] ?>" class="fa-solid fa-ellipsis icon--active"></i>
                                                     <ul class="content__block-container-items-block-icon--child-list">
                                                         <li class="content__block-container-items-block-icon--child-items">
-                                                            <i id="add-playMusic" data-id="<?php echo $newResultRemix[$i]['id'] ?>" title="Thêm vào playlist" class="icon ic-add-play-now icon--active"></i>
+                                                            <i id="add-playMusic" data-id="<?php echo $newResultRemix[$i]['id']?>" title="Thêm vào media player" class="icon ic-add-play-now icon--active"></i>
                                                         </li>
                                                         <li class="content__block-container-items-block-icon--child-items">
-                                                            <i data-id="<?php echo $newResultRemix[$i]['id'] ?>" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
+                                                            <i onclick="handleDownloadSong('<?php echo $newResultRemix[$i]['Link128']?>','<?php echo $newResultRemix[$i]['Link320']?>')" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -730,8 +743,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultRemixNoUser[$i]['id'] ?>" onclick="playSongNoUser('audio<?php echo $newResultRemixNoUser[$i]['id'] ?>','play<?php echo $newResultRemixNoUser[$i]['id'] ?>','pause<?php echo $newResultRemixNoUser[$i]['id'] ?>','blurSong<?php echo $newResultRemixNoUser[$i]['id'] ?>','blockIcon<?php echo $newResultRemixNoUser[$i]['id'] ?>','liked<?php echo $newResultRemixNoUser[$i]['id'] ?>','ellipsis<?php echo $newResultRemixNoUser[$i]['id'] ?>')" data-id="<?php echo $newResultRemixNoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultRemixNoUser[$i]['id'] ?>" onclick="pauseSongNoUser('audio<?php echo $newResultRemixNoUser[$i]['id'] ?>','play<?php echo $newResultRemixNoUser[$i]['id'] ?>','pause<?php echo $newResultRemixNoUser[$i]['id'] ?>','blurSong<?php echo $newResultRemixNoUser[$i]['id'] ?>','blockIcon<?php echo $newResultRemixNoUser[$i]['id'] ?>','liked<?php echo $newResultRemixNoUser[$i]['id'] ?>','ellipsis<?php echo $newResultRemixNoUser[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultRemixNoUser[$i]['id'] ?>" onclick="playSongNoUser(<?php echo $newResultRemixNoUser[$i]['id'] ?>)" data-id="<?php echo $newResultRemixNoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultRemixNoUser[$i]['id'] ?>" onclick="pauseSongNoUser(<?php echo $newResultRemixNoUser[$i]['id'] ?>)" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <a id="ellipsis<?php echo $newResultRemixNoUser[$i]['id'] ?>" href="page_login.php" class="content__block-container-items-block-icon-i-link">
@@ -765,7 +778,7 @@
                                         </div>
                                     </div>
                                     <!-- Link audio lấy id bằng các audio rồi chèn vào id của nó trong mysql -->
-                                    <audio id="audio<?php echo $newResultRemixNoUser[$i]['id'] ?>" src="<?php echo $newResultRemixNoUser[$i]['Link320']?>"></audio>
+                                    <audio id="audio<?php echo $newResultRemixNoUser[$i]['id'] ?>" src="<?php echo $newResultRemixNoUser[$i]['Link128']?>"></audio>
                                 <?php }?>
                             <?php }?>
                         </div>
@@ -1040,8 +1053,8 @@
                                                     <?php }?>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023[$i]['id'] ?>" onclick="playSong('audio<?php echo $newResultHot2023[$i]['id'] ?>','play<?php echo $newResultHot2023[$i]['id'] ?>','pause<?php echo $newResultHot2023[$i]['id'] ?>','blurSong<?php echo $newResultHot2023[$i]['id'] ?>','blockIcon<?php echo $newResultHot2023[$i]['id'] ?>','liked<?php echo $newResultHot2023[$i]['id'] ?>','disliked<?php echo $newResultHot2023[$i]['id'] ?>','ellipsis<?php echo $newResultHot2023[$i]['id'] ?>')" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023[$i]['id'] ?>" onclick="pauseSong('audio<?php echo $newResultHot2023[$i]['id'] ?>','play<?php echo $newResultHot2023[$i]['id'] ?>','pause<?php echo $newResultHot2023[$i]['id'] ?>','blurSong<?php echo $newResultHot2023[$i]['id'] ?>','blockIcon<?php echo $newResultHot2023[$i]['id'] ?>','liked<?php echo $newResultHot2023[$i]['id'] ?>','disliked<?php echo $newResultHot2023[$i]['id'] ?>','ellipsis<?php echo $newResultHot2023[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023[$i]['id'] ?>" onclick="playSong('<?php echo $newResultHot2023[$i]['id'] ?>')" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023[$i]['id'] ?>" onclick="pauseSong('<?php echo $newResultHot2023[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <i id="ellipsis<?php echo $newResultHot2023[$i]['id'] ?>" class="fa-solid fa-ellipsis icon--active"></i>
@@ -1092,8 +1105,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="playSongNoUser('audio<?php echo $newResultHot2023NoUser[$i]['id'] ?>','play<?php echo $newResultHot2023NoUser[$i]['id'] ?>','pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>','blurSong<?php echo $newResultHot2023NoUser[$i]['id'] ?>','blockIcon<?php echo $newResultHot2023NoUser[$i]['id'] ?>','liked<?php echo $newResultHot2023NoUser[$i]['id'] ?>','ellipsis<?php echo $newResultHot2023NoUser[$i]['id'] ?>')" data-id="<?php echo $newResultHot2023NoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="pauseSongNoUser('audio<?php echo $newResultHot2023NoUser[$i]['id'] ?>','play<?php echo $newResultHot2023NoUser[$i]['id'] ?>','pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>','blurSong<?php echo $newResultHot2023NoUser[$i]['id'] ?>','blockIcon<?php echo $newResultHot2023NoUser[$i]['id'] ?>','liked<?php echo $newResultHot2023NoUser[$i]['id'] ?>','ellipsis<?php echo $newResultHot2023NoUser[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="playSongNoUser()" data-id="<?php echo $newResultHot2023NoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="pauseSongNoUser()" class="icon ic-pause-circle-outline"></i>
                                                 </div>
                                                 <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
                                                     <a id="ellipsis<?php echo $newResultHot2023NoUser[$i]['id'] ?>" href="page_login.php" class="content__block-container-items-block-icon-i-link">
@@ -1138,7 +1151,7 @@
                     <!-- Phần chứa tiêu đề -->
                     <div class="content__block-title">
                         <h5 class="content__block-title-h5">
-                            Album hot
+                            Nhạc hot 2023
                         </h5>
                         <a href="" class="content__block-title-link">
                             <span class="content__block-title-link-span">
@@ -1150,258 +1163,115 @@
                     <!-- Phần chứa nội dung -->
                     <div class="content__block-container">
                         <div class="content__block-container-list row">
-                            <!-- Phần chưa từng items -->
-                            <div class="content__block-container-items col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                                <!-- Phần chứa ảnh và các icon -->
-                                <div class="content__block-container-items-block">
-                                    <div style="background-image: url(../Image/img_album_1.jpg)" class="content__block-container-items-block-img">
+                            <?php if(!empty($user)){?>
+                                <?php for($i = 0; $i < 6;$i++) {?>
+                                    <!-- Phần chưa từng items -->
+                                    <div class="content__block-container-items col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
+                                        <!-- Phần chứa ảnh và các icon -->
+                                        <div class="content__block-container-items-block">
+                                            <div style="background-image: url(<?php echo $newResultHot2023[$i]['songImage'] ?>)" class="content__block-container-items-block-img">
 
-                                    </div>
-                                    <a href="" class="content__block-container-items-block-blur"></a>
-                                    <div class="content__block-container-items-block-icon">
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--left">
-                                            <i class="fa-regular fa-heart icon--active"></i>
-                                            <i class="fa-solid fa-heart"></i>
+                                            </div>
+                                            <a id="blurSong<?php echo $newResultHot2023[$i]['id'] ?>" href="" class="content__block-container-items-block-blur"></a>
+                                            <div id="blockIcon<?php echo $newResultHot2023[$i]['id'] ?>" class="content__block-container-items-block-icon">
+                                                <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--left liked">
+                                                    <?php if($newResultHot2023[$i]['status'] === 0) {?>
+                                                        <i id="liked<?php echo $newResultHot2023[$i]['id'] ?>" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" title="Thêm vào thư viện" class='fa-regular fa-heart icon--active'></i>
+                                                    <?php }else{?>
+                                                        <i id="disliked<?php echo $newResultHot2023[$i]['id'] ?>" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" title="Xóa khỏi thư viện" class='fa-solid fa-heart icon--add-library icon--active'></i>
+                                                    <?php }?>
+                                                </div>
+                                                <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023[$i]['id'] ?>" onclick="playSong('<?php echo $newResultHot2023[$i]['id'] ?>')" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023[$i]['id'] ?>" onclick="pauseSong('<?php echo $newResultHot2023[$i]['id'] ?>')" class="icon ic-pause-circle-outline"></i>
+                                                </div>
+                                                <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
+                                                    <i id="ellipsis<?php echo $newResultHot2023[$i]['id'] ?>" class="fa-solid fa-ellipsis icon--active"></i>
+                                                    <ul class="content__block-container-items-block-icon--child-list">
+                                                        <li class="content__block-container-items-block-icon--child-items">
+                                                            <i id="add-playMusic" data-id="<?php echo $newResultHot2023[$i]['id'] ?>" title="Thêm vào playlist" class="icon ic-add-play-now icon--active"></i>
+                                                        </li>
+                                                        <li class="content__block-container-items-block-icon--child-items">
+                                                            <i data-id="<?php echo $newResultHot2023[$i]['id'] ?>" title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                            <i class="icon ic-play-circle-outline icon--active"></i>
-                                            <i class="icon ic-pause-circle-outline"></i>
+                                        <!-- Phần chứa văn bản về nhạc -->
+                                        <div class="content__block-container-items-text">
+                                            <div class="content__block-container-items-text-title">
+                                                <a href="" class="content__block-container-items-text-title-link"><?php echo $newResultHot2023[$i]['songName'] ?></a> 
+                                            </div>
+                                            <div class="content__block-container-items-text-singer">
+                                                <?php
+                                                    $arrayArtistName = explode(",", $newResultHot2023[$i]['artistName']);
+                                                    foreach($arrayArtistName as $artistName){
+                                                ?>
+                                                    <a href="" class="content__block-container-items-singer-link"><?php echo $artistName?></a>
+                                                    </br>  
+                                                <?php }?>
+                                            </div> 
                                         </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
-                                            <i class="fa-solid fa-ellipsis icon--active"></i>
-                                        </div>
+                                        <!-- Link audio lấy id bằng các audio rồi chèn vào id của nó trong mysql -->
+                                        <audio id="audio<?php echo $newResultHot2023[$i]['id'] ?>" src="<?php echo $newResultHot2023[$i]['Link320']?>"></audio>
                                     </div>
-                                </div>
-                                <!-- Phần chứa văn bản về nhạc -->
-                                <div class="content__block-container-items-text">
-                                    <div class="content__block-container-items-text-title">
-                                        <a href="" class="content__block-container-items-text-title-link">
-                                            Đâu Còn Quan Trọng (Single)
-                                        </a>
-                                    </div>
-                                    <div class="content__block-container-items-text-singer">
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Tăng Duy Tân,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Hoàng Thùy Linh,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Bích Phương...
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Phần chưa từng items -->
-                            <div class="content__block-container-items col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                                <!-- Phần chứa ảnh và các icon -->
-                                <div class="content__block-container-items-block">
-                                    <div style="background-image: url(../Image/img_album_1.jpg)" class="content__block-container-items-block-img">
+                                <?php }?>
+                            <?php } else{?>
+                                <?php for($i = 0; $i < 6;$i++) {?>
+                                    <!-- Phần chưa từng items -->
+                                    <div class="content__block-container-items col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
+                                        <!-- Phần chứa ảnh và các icon -->
+                                        <div class="content__block-container-items-block">
+                                            <div style="background-image: url(<?php echo $newResultHot2023NoUser[$i]['songImage'] ?>)" class="content__block-container-items-block-img">
 
-                                    </div>
-                                    <a href="" class="content__block-container-items-block-blur"></a>
-                                    <div class="content__block-container-items-block-icon">
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--left">
-                                            <i class="fa-regular fa-heart icon--active"></i>
-                                            <i class="fa-solid fa-heart"></i>
+                                            </div>
+                                            <a id="blurSong<?php echo $newResultHot2023NoUser[$i]['id'] ?>" href="" class="content__block-container-items-block-blur"></a>
+                                            <div id="blockIcon<?php echo $newResultHot2023NoUser[$i]['id'] ?>" class="content__block-container-items-block-icon">
+                                                <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--left">
+                                                    <a id="liked<?php echo $newResultHot2023NoUser[$i]['id'] ?>" href="page_login.php" class="content__block-container-items-block-icon-i-link">
+                                                        <i title="Thêm vào thư viện" class='fa-regular fa-heart icon--active'></i>
+                                                    </a>
+                                                </div>
+                                                <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
+                                                    <i title="Phát nhạc" id="play<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="playSongNoUser()" data-id="<?php echo $newResultHot2023NoUser[$i]['id'] ?>" class="icon ic-play-circle-outline icon--active"></i>
+                                                    <i title="Dừng nhạc" id="pause<?php echo $newResultHot2023NoUser[$i]['id'] ?>" onclick="pauseSongNoUser()" class="icon ic-pause-circle-outline"></i>
+                                                </div>
+                                                <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
+                                                    <a id="ellipsis<?php echo $newResultHot2023NoUser[$i]['id'] ?>" href="page_login.php" class="content__block-container-items-block-icon-i-link">
+                                                        <i class="fa-solid fa-ellipsis icon--active"></i>
+                                                        <ul class="content__block-container-items-block-icon--child-list">
+                                                            <li class="content__block-container-items-block-icon--child-items">
+                                                                <i title="Thêm vào playlist" class="icon ic-add-play-now icon--active"></i>
+                                                            </li>
+                                                            <li class="content__block-container-items-block-icon--child-items">
+                                                                <i title="Tải bài hát xuống" class="icon ic-download icon--active"></i>
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                            <i class="icon ic-play-circle-outline icon--active"></i>
-                                            <i class="icon ic-pause-circle-outline"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
-                                            <i class="fa-solid fa-ellipsis icon--active"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Phần chứa văn bản về nhạc -->
-                                <div class="content__block-container-items-text">
-                                    <div class="content__block-container-items-text-title">
-                                        <a href="" class="content__block-container-items-text-title-link">
-                                            Đâu Còn Quan Trọng (Single)
-                                        </a>
-                                    </div>
-                                    <div class="content__block-container-items-text-singer">
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Tăng Duy Tân,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Hoàng Thùy Linh,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Bích Phương...
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Phần chưa từng items -->
-                            <div class="content__block-container-items col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                                <!-- Phần chứa ảnh và các icon -->
-                                <div class="content__block-container-items-block">
-                                    <div style="background-image: url(../Image/img_album_1.jpg)" class="content__block-container-items-block-img">
-
-                                    </div>
-                                    <a href="" class="content__block-container-items-block-blur"></a>
-                                    <div class="content__block-container-items-block-icon">
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--left">
-                                            <i class="fa-regular fa-heart icon--active"></i>
-                                            <i class="fa-solid fa-heart"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                            <i class="icon ic-play-circle-outline icon--active"></i>
-                                            <i class="icon ic-pause-circle-outline"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
-                                            <i class="fa-solid fa-ellipsis icon--active"></i>
+                                        <!-- Phần chứa văn bản về nhạc -->
+                                        <div class="content__block-container-items-text">
+                                            <div class="content__block-container-items-text-title">
+                                                <a href="" class="content__block-container-items-text-title-link"><?php echo $newResultHot2023NoUser[$i]['songName'] ?></a> 
+                                            </div>
+                                            <div class="content__block-container-items-text-singer">
+                                                <?php
+                                                    $arrayArtistName = explode(",", $newResultHot2023NoUser[$i]['artistName']);
+                                                    foreach($arrayArtistName as $artistName){
+                                                ?>
+                                                    <a href="" class="content__block-container-items-singer-link"><?php echo $artistName?></a>
+                                                    </br>  
+                                                <?php }?>
+                                            </div> 
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Phần chứa văn bản về nhạc -->
-                                <div class="content__block-container-items-text">
-                                    <div class="content__block-container-items-text-title">
-                                        <a href="" class="content__block-container-items-text-title-link">
-                                            Đâu Còn Quan Trọng (Single)
-                                        </a>
-                                    </div>
-                                    <div class="content__block-container-items-text-singer">
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Tăng Duy Tân,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Hoàng Thùy Linh,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Bích Phương...
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Phần chưa từng items -->
-                            <div class="content__block-container-items col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                                <!-- Phần chứa ảnh và các icon -->
-                                <div class="content__block-container-items-block">
-                                    <div style="background-image: url(../Image/img_album_1.jpg)" class="content__block-container-items-block-img">
-
-                                    </div>
-                                    <a href="" class="content__block-container-items-block-blur"></a>
-                                    <div class="content__block-container-items-block-icon">
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--left">
-                                            <i class="fa-regular fa-heart icon--active"></i>
-                                            <i class="fa-solid fa-heart"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                            <i class="icon ic-play-circle-outline icon--active"></i>
-                                            <i class="icon ic-pause-circle-outline"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
-                                            <i class="fa-solid fa-ellipsis icon--active"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Phần chứa văn bản về nhạc -->
-                                <div class="content__block-container-items-text">
-                                    <div class="content__block-container-items-text-title">
-                                        <a href="" class="content__block-container-items-text-title-link">
-                                            Đâu Còn Quan Trọng (Single)
-                                        </a>
-                                    </div>
-                                    <div class="content__block-container-items-text-singer">
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Tăng Duy Tân,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Hoàng Thùy Linh,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Bích Phương...
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Phần chưa từng items -->
-                            <div class="content__block-container-items col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                                <!-- Phần chứa ảnh và các icon -->
-                                <div class="content__block-container-items-block">
-                                    <div style="background-image: url(../Image/img_album_1.jpg)" class="content__block-container-items-block-img">
-
-                                    </div>
-                                    <a href="" class="content__block-container-items-block-blur"></a>
-                                    <div class="content__block-container-items-block-icon">
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--left">
-                                            <i class="fa-regular fa-heart icon--active"></i>
-                                            <i class="fa-solid fa-heart"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                            <i class="icon ic-play-circle-outline icon--active"></i>
-                                            <i class="icon ic-pause-circle-outline"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
-                                            <i class="fa-solid fa-ellipsis icon--active"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Phần chứa văn bản về nhạc -->
-                                <div class="content__block-container-items-text">
-                                    <div class="content__block-container-items-text-title">
-                                        <a href="" class="content__block-container-items-text-title-link">
-                                            Đâu Còn Quan Trọng (Single)
-                                        </a>
-                                    </div>
-                                    <div class="content__block-container-items-text-singer">
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Tăng Duy Tân,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Hoàng Thùy Linh,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Bích Phương...
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Phần chưa từng items -->
-                            <div class="content__block-container-items col-xl-2 col-lg-2 col-md-4 col-sm-6">
-                                <!-- Phần chứa ảnh và các icon -->
-                                <div class="content__block-container-items-block">
-                                    <div style="background-image: url(../Image/img_album_1.jpg)" class="content__block-container-items-block-img">
-
-                                    </div>
-                                    <a href="" class="content__block-container-items-block-blur"></a>
-                                    <div class="content__block-container-items-block-icon">
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--left">
-                                            <i class="fa-regular fa-heart icon--active"></i>
-                                            <i class="fa-solid fa-heart"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--large content__block-container-items-block-icon-i--center">
-                                            <i class="icon ic-play-circle-outline icon--active"></i>
-                                            <i class="icon ic-pause-circle-outline"></i>
-                                        </div>
-                                        <div class="content__block-container-items-block-icon-i content__block-container-items-block-icon-i--right">
-                                            <i class="fa-solid fa-ellipsis icon--active"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Phần chứa văn bản về nhạc -->
-                                <div class="content__block-container-items-text">
-                                    <div class="content__block-container-items-text-title">
-                                        <a href="" class="content__block-container-items-text-title-link">
-                                            Đâu Còn Quan Trọng (Single)
-                                        </a>
-                                    </div>
-                                    <div class="content__block-container-items-text-singer">
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Tăng Duy Tân,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Hoàng Thùy Linh,
-                                        </a>
-                                        <a href="" class="content__block-container-items-singer-link">
-                                            Bích Phương...
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                                    <!-- Link audio lấy id bằng các audio rồi chèn vào id của nó trong mysql -->
+                                    <audio id="audio<?php echo $newResultHot2023NoUser[$i]['id'] ?>" src="<?php echo $newResultHot2023NoUser[$i]['Link320']?>"></audio>
+                                <?php }?>
+                            <?php }?>
                         </div>
                     </div>
                 </div>
@@ -1429,6 +1299,26 @@
         <?php
             include('playlist/playlist.php');
         ?>
+        <!-- Phần chọn chất lượng tải nhạc -->
+        <div class="quality">
+            <div class="quality__title">
+                <h5>Chất lượng nhạc</h5>
+            </div>
+            <div class="quality__block">
+                <div class="quality__block-group">
+                    <span>Thường (128 kbps)</span>
+                    <input type="radio" name = "quality" value="128" class="item--active">
+                </div>
+                <div class="quality__block-group">
+                    <span>Cao (320 kbps)</span>
+                    <input type="radio" name = "quality" value="320">
+                </div>
+                <button class="quality__block-button">Tải bài hát về</button>
+                <div class="quality__block-close">
+                    <i onclick="handleCloseDownLoad()" class="icon ic-close"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <!-- Link slick slider -->
@@ -1513,8 +1403,13 @@
 <script src="../JS/handle_add_songs_mediaPlayer_ajax.js"></script>
 <!-- Xử lý xóa các bài hát trong media player -->
 <script src="../JS/handle_delete_songs_mediaPlayer_ajax.js"></script>
-<!-- Xử lý media player -->
-<script src="../JS/handle_mediaPlayer.js"></script>
+
+<!-- Nếu người dùng đăng nhập thì mới có file media player -->
+<?php if(!empty($user)){?>
+    <!-- Xử lý media player -->
+    <script src="../JS/handle_mediaPlayer.js"></script>
+<?php }?>
+
 <!-- Xử lý phát từng bài hát -->
 <script src="../JS/handlePlaySong/handle_playSong.js"></script>
 <!-- Xử lý phát từng bài hát khi chưa đăng nhập -->
@@ -1556,69 +1451,9 @@
 </script>
 
 <!-- Xử lý việc phát nhạc của những bài hát trong search -->
+<script src="../JS/handle_play_song_search.js"></script>
 
-<script>
-
-    let isCheckPlay = null;
-    let isCheckPause = null;
-    let isCheckAudio = null;
-
-    function stopAllAudio(){
-        if(isCheckPlay !== null && isCheckPause !== null && !isCheckAudio.paused)
-        {
-            isCheckAudio.pause();
-            // Chuyển nút pause thành play
-            isCheckPause.classList.remove('icon--active');
-            isCheckPlay.classList.add('icon--active');
-        }
-    }
-
-    function playSongSearch(idSong){
-        var getIdAudio = "#audio-search-" + idSong;
-        var getIdPlay = "#play-search-" + idSong;
-        var getIdPause = "#pause-search-" + idSong;
-        
-        var elementAudio = document.querySelector(getIdAudio);
-        var elementPlay = document.querySelector(getIdPlay);
-        var elementPause = document.querySelector(getIdPause);
-
-        // Dừng những bài hát đang phát nếu có
-        stopAllAudio();
-
-        // Mỗi khi click vào thì sẽ luôn hát từ đầu
-        elementAudio.currentTime = 0;
-
-        elementAudio.play();
-        isCheckPlay = elementPlay;
-        isCheckPause = elementPause;
-        isCheckAudio = elementAudio;
-
-        // Chuyển nút play thành pause
-        elementPlay.classList.remove('icon--active');
-        elementPause.classList.add('icon--active');
-    }
-
-    function pauseSongSearch(idSong){
-        var getIdAudio = "#audio-search-" + idSong;
-        var getIdPlay = "#play-search-" + idSong;
-        var getIdPause = "#pause-search-" + idSong;
-        
-        var elementAudio = document.querySelector(getIdAudio);
-        var elementPlay = document.querySelector(getIdPlay);
-        var elementPause = document.querySelector(getIdPause);
-
-        elementAudio.pause();
-
-        isCheckPlay = elementPlay;
-        isCheckPause = elementPause;
-        isCheckAudio = elementAudio;
-
-        // Chuyển nút pause thành play
-        elementPause.classList.remove('icon--active');
-        elementPlay.classList.add('icon--active');
-
-        
-    }
-</script>
+<!-- Xử lý việc tải bài hát về -->
+<script src="../JS/handle_dow_songs_ajax.js"></script>
 
 </html>

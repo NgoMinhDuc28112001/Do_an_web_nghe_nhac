@@ -50,6 +50,9 @@
 
             $statementAddPlaylist -> execute();
 
+            // Để load lại ngay ở trang web hiện tại đang ở.
+            header("Location: ".$_SERVER['PHP_SELF']);
+
         }
     }
 

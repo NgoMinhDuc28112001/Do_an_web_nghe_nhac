@@ -49,6 +49,10 @@ a:hover{
     color: var(--white-color);
 }
 
+.apps{
+    background-color: var(--primary-color-three);
+}
+
 /* Phần container */
 .containers{
     background-color: var(--primary-color-three);

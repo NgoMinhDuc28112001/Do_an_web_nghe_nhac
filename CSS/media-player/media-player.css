@@ -1,6 +1,5 @@
 .play-music{
     position: fixed;
-    right: 0;
     height: 100vh;
     width: 360px;
     background-color: var(--primary-color-three);
@@ -36,6 +35,10 @@
     font-size: 2.2rem;
     display: block;
     margin-top: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 
 .play-music__dashboard-cd{
@@ -92,7 +95,7 @@ i{
 
 #random.item--active
 i,
-#loop.item--active
+#repeat.item--active
 i{
     color: var(--primary-color-one);
 }

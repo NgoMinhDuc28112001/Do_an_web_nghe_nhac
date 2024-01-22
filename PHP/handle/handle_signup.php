@@ -38,7 +38,13 @@
             }
             // Trường hợp thành công
             else{
-                $successValidator['checkEmail'] = 'Đã đăng ký email thành công';
+                // Kiểm tra xem người dùng đã nhập đúng định dạng của email hay chưa
+                if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                    $errorValidator['checkFormEmail'] = 'Người dùng nhập địa chỉ email không chính xác!';
+                }
+                else{
+                    $successValidator['checkEmail'] = 'Đã đăng ký email thành công';
+                }
             }
         }
 
@@ -104,19 +110,8 @@
             $statementInsert -> bindParam(':userPass',$userPass);
 
             $statementInsert -> execute();
-
-            // Đóng tất cả các con trỏ kết quả (hiểu đơn giản là kết thúc truy vấn trên và bắt đầu truy vấn mới)
-            $statementInsert -> closeCursor();
-            // Sau khí đăng ký thành công sẽ liên kết tài khoản mới tạo với 1 thư viện của riêng nó
-            // Lấy ra id của user mới tạo
-            $user_id = $connect->lastInsertId();
-    
-            $queryInsertLibrary = "INSERT INTO librarys(userID) values(:userID)";
-            $statementInsertLibrary = $connect -> prepare($queryInsertLibrary);
-            $statementInsertLibrary -> bindParam(':userID',$user_id);
-    
-            $statementInsertLibrary -> execute();
         }
+
     }
 
 ?>

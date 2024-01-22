@@ -20,19 +20,29 @@
             {
                 $result = $statementEmail -> fetch(PDO::FETCH_ASSOC);
                 // Kiểm tra mật khẩu người dùng nhập
-                $checkPass = password_verify($userPass,$result['userPass']);
-                if($checkPass)
+
+                if(!empty($userPass))
                 {
-                    $_SESSION['user'] = $result;
-                    header('location:index.php');
+                    $checkPass = password_verify($userPass,$result['userPass']);
+                    if($checkPass)
+                    {
+                        $_SESSION['user'] = $result;
+                        header('location:index.php');
+                    }
+                    else{
+                        $errorMessage['password'] = 'Mật khẩu không chính xác!';
+                    }
                 }
                 else{
-                    $errorMessage['password'] = 'Mật khẩu không chính xác!';
+                    $errorMessage['password'] = 'Bạn chưa nhập mật khẩu!';
                 }
             }
             else{
                 $errorMessage['email'] = 'Email không tồn tại!';
             }
+        }
+        else{
+            $errorMessage['email'] = 'Bạn chưa nhập email!';
         }
     }
 

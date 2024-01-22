@@ -30,7 +30,7 @@
                         <div class="play-music__dashboard-controls-items">
                             <i id="next" class="icon ic-next"></i>
                         </div>
-                        <div id="loop" class="play-music__dashboard-controls-items">
+                        <div id="repeat" class="play-music__dashboard-controls-items">
                             <i class="icon ic-repeat"></i>
                         </div>
                     </div>

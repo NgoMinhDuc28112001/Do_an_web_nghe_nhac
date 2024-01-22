@@ -213,39 +213,49 @@
                     <div class="content__playlist-content">
                         <ul class="content__playlist-content-list row">
                             <?php if(!empty($user)) {?>
-                                <?php for($i = 0; $i < count($resultRenderPlaylist); $i++) { ?>
-                                    <li class="content__playlist-content-items col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
-                                        <div class="content__playlist-content-items-block">
-                                            <?php if(isset($resultRenderPlaylist[$i]['playlistImage'])) { ?>
-                                                <div style="background-image: url(<?php echo $resultRenderPlaylist[$i]['playlistImage']?>);" class="content__playlist-content-items-block-img"></div>
-                                            <?php } else {?>
-                                                <div style="background-image: url(../Image/no-img-playlist.png);" class="content__playlist-content-items-block-img"></div>
-                                            <?php }?>
-                                            <a href="page_playlist.php?playlistID=<?php echo $resultRenderPlaylist[$i]['playlistID']?>" class="content__playlist-content-items-block-blur"></a>
-                                            <div class="content__playlist-content-items-block-icon">
-                                                <div data-id="<?php echo $resultRenderPlaylist[$i]['playlistID'] ?>" class="content__playlist-content-items-block-icon-items content__playlist-content-items-block-icon-items--left">
-                                                    <i class="icon ic-close icon--active"></i>
-                                                </div>
-                                                <div class="content__playlist-content-items-block-icon-items content__playlist-content-items-block-icon-items--center content__playlist-content-items-block-icon-items--large">
-                                                    <i class="icon ic-play-circle-outline icon--active"></i>
-                                                    <i class="icon ic-pause-circle-outline"></i>
-                                                </div>
-                                                <div class="content__playlist-content-items-block-icon-items content__playlist-content-items-block-icon-items--right">
-                                                    <i class="icon ic-add-play-now icon--active"></i>
+                                <?php if(!empty($resultRenderPlaylist)) { ?>
+                                    <?php for($i = 0; $i < count($resultRenderPlaylist); $i++) { ?>
+                                        <li class="content__playlist-content-items col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
+                                            <div class="content__playlist-content-items-block">
+                                                <?php if(isset($resultRenderPlaylist[$i]['playlistImage'])) { ?>
+                                                    <div style="background-image: url(<?php echo $resultRenderPlaylist[$i]['playlistImage']?>);" class="content__playlist-content-items-block-img"></div>
+                                                <?php } else {?>
+                                                    <div style="background-image: url(../Image/no-img-playlist.png);" class="content__playlist-content-items-block-img"></div>
+                                                <?php }?>
+                                                <a href="page_playlist.php?playlistID=<?php echo $resultRenderPlaylist[$i]['playlistID']?>" class="content__playlist-content-items-block-blur"></a>
+                                                <div class="content__playlist-content-items-block-icon">
+                                                    <div data-id="<?php echo $resultRenderPlaylist[$i]['playlistID'] ?>" class="content__playlist-content-items-block-icon-items content__playlist-content-items-block-icon-items--left">
+                                                        <i title="Xóa playlist" class="icon ic-close icon--active"></i>
+                                                    </div>
+                                                    <div class="content__playlist-content-items-block-icon-items content__playlist-content-items-block-icon-items--center content__playlist-content-items-block-icon-items--large">
+                                                        <i class="icon ic-play-circle-outline icon--active"></i>
+                                                        <i class="icon ic-pause-circle-outline"></i>
+                                                    </div>
+                                                    <div class="content__playlist-content-items-block-icon-items content__playlist-content-items-block-icon-items--right">
+                                                        <i class="icon ic-add-play-now icon--active"></i>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="content__playlist-content-items-text">
-                                            <div class="content__playlist-content-items-text-title">
-                                                <?php echo $resultRenderPlaylist[$i]['playlistName']?>
+                                            <div class="content__playlist-content-items-text">
+                                                <div class="content__playlist-content-items-text-title">
+                                                    <?php echo $resultRenderPlaylist[$i]['playlistName']?>
+                                                </div>
+                                                <ul class="content__playlist-content-items-text-list">
+                                                    <li class="content__playlist-content-items-text-items">
+                                                        <a href="" class="content__playlist-content-items-text-link">
+                                                            <?php echo $resultRenderPlaylist[$i]['userName']?>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <ul class="content__playlist-content-items-text-list">
-                                                <li class="content__playlist-content-items-text-items">
-                                                    <a href="" class="content__playlist-content-items-text-link">
-                                                        <?php echo $resultRenderPlaylist[$i]['userName']?>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                        </li>
+                                    <?php }?>
+                                <?php }else{?>
+                                    <!-- hiển thị khối này khi không có bài hát yêu thích nào -->
+                                    <li class="content__block-tab-content-no-song">
+                                        <div class="content__block-tab-content-no-song-block">
+                                            <i class="fa-solid fa-music"></i>
+                                            <span>Không có playlist nào</span>
                                         </div>
                                     </li>
                                 <?php }?>
@@ -338,36 +348,6 @@
                             </ul>
                             <!-- Phần chứa nội dung của những bài hát tải lên -->
                             <ul class="content__block-tab-content row">
-                                <!-- <li class="content__block-tab-content-items col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
-                                    <div class="content__block-tab-content-items-block">
-                                        <div style="background-image: url();" class="content__block-tab-content-items-block-img"></div>
-                                        <div class="content__block-tab-content-items-block-blur"></div>
-                                        <div class="content__block-tab-content-items-block-icon">
-                                            <div title="Xóa khỏi thư viện" data-id="" class="content__block-tab-content-items-block-icon-items content__block-tab-content-items-block-icon-items--left">
-                                                <i class="icon ic-close icon--active"></i>
-                                            </div>
-                                            <div class="content__block-tab-content-items-block-icon-items content__block-tab-content-items-block-icon-items--large content__block-tab-content-items-block-icon-items--center">
-                                                <i class="icon ic-play-circle-outline icon--active"></i>
-                                                <i class="icon ic-pause-circle-outline"></i>
-                                            </div>
-                                            <div class="content__block-tab-content-items-block-icon-items content__block-tab-content-items-block-icon-items--right">
-                                                <i class="icon ic-add-play-now icon--active"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="content__block-tab-content-items-text">
-                                        <div class="content__block-tab-content-items-text-name-song">
-                                            Ngo Minh Duc
-                                        </div>
-                                        <ul class="content__block-tab-content-items-text-artist">
-                                            <li class="content__block-tab-content-items-text-artist-items">
-                                                <a href="" class="content__block-tab-content-items-text-artist-items-link">
-                                                    NgoMinhDuc
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li> -->
                                 <li class="content__block-tab-content-no-song">
                                     <div class="content__block-tab-content-no-song-block">
                                         <i class="fa-solid fa-music"></i>

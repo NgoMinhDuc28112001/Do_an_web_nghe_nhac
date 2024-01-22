@@ -1,0 +1,99 @@
+.quality{
+    position: fixed;
+    /* border: 2px solid red; */
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+    background-color: var(--primary-color-two);
+    border-radius: 10px;
+    z-index: 4;
+    padding: 20px 60px 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s linear;
+}
+
+.quality.item--active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.quality__title h5{
+    font-size: 2.2rem;
+    color: var(--white-color);
+    padding: 20px;
+    text-align: center;
+}
+
+.quality__block{
+
+}
+
+.quality__block-group{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.quality__block-group span{
+    font-size: 1.4rem;
+    color: var(--white-color);
+    width: 120px;
+}
+
+input[type="radio"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+}
+
+.quality__block-group input{
+    height: 16px; /* Adjust the size of the checkmark */
+    width: 16px;
+    background-color: var(--primary-color-two); /* Color of the checkmark */
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 3px;
+    margin-left: 80px;
+    cursor: pointer;
+}
+
+.quality__block-group input.item--active{
+    outline: none;
+    border: 2px solid var(--primary-color-one);
+    background-color: var(--primary-color-one);
+    background-clip: content-box;
+}
+
+.quality__block-button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color-one);
+    font-size: 1.4rem;
+    color: var(--white-color);
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.quality__block-button:hover{
+    opacity: 1;
+}
+
+.quality__block-close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--white-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.quality__block-close:hover{
+    opacity: 1;
+}

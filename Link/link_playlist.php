@@ -25,7 +25,7 @@
     <!-- Link blur-app của web -->
     <link rel="stylesheet" href="../CSS/blur_app/blur_app.css">
     <!-- Link play-music.css của web -->
-    <link rel="stylesheet" href="../CSS/play-music/play-music.css">
+    <link rel="stylesheet" href="../CSS/media-player/media-player.css">
     <!-- Link change-color.css -->
     <link rel="stylesheet" href="../CSS/change-color/change-color.css">
     <!-- Link upload_img.css -->

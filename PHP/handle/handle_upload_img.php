@@ -1,8 +1,8 @@
 <?php
 
-
     if($_SERVER['REQUEST_METHOD'] === 'POST')
     {
+        $errorUploadImage = [];
         if(!empty($_FILES['fileImage']) && $_FILES['fileImage']['error'] === 0)
         {
             // Thư mục lưu trữ ảnh tải lên
@@ -44,9 +44,16 @@
             
             }
             else{
-                echo 'file này không phải ảnh';
+                $errorUploadImage['message'] = 'File này không phải ảnh';
             }
         }
+        else{
+            $errorUploadImage['message'] = "Bạn chưa chọn ảnh đại diện để cập nhật";
+        }
+
+        // echo '<pre>';
+        // print_r($errorUploadImage);
+        // echo '<pre>';
     }
 
 ?>

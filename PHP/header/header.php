@@ -99,7 +99,7 @@
                                 <div class="header__container-items-user-inf">
                                     <div class="header__container-items-user-inf-title">
                                         <div class="header__container-items-user-inf-title-item">
-                                            <div style="background-image: url(<?php echo (isset($user['userImage'])) ? $user['userImage'] : '../Image/user-default.png' ?>);" class="header__container-items-user-inf-title-item-img">
+                                            <div title="Thay đổi ảnh đại diện" style="background-image: url(<?php echo (isset($user['userImage'])) ? $user['userImage'] : '../Image/user-default.png' ?>);" class="header__container-items-user-inf-title-item-img">
                                                 <div class="header__container-items-user-inf-title-item-img-blur"></div>
                                                 <div class="header__container-items-user-inf-title-item-img-icon">
                                                     <i class="fa-solid fa-camera"></i>

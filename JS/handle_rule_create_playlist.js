@@ -9,9 +9,11 @@ elementInputPlaylist.oninput = function()
     {
         document.querySelector('.playlist__form-button').classList.add('icon--disable');
         document.querySelector('.playlist__form-button').disabled = true;
+        document.querySelector('.playlist__form-button').title = "Vui lòng nhập tên cho playlist";
     }
     else{
         document.querySelector('.playlist__form-button').classList.remove('icon--disable');
         document.querySelector('.playlist__form-button').disabled = false;
+        document.querySelector('.playlist__form-button').title = "Tạo mới playlist";
     }
 }

@@ -51,7 +51,7 @@ h5{
 }
 
 .upload-img__img{
-    border: 10px solid var(--primary-color-one);
+    /* border: 10px solid var(--primary-color-one); */
     width: 200px;
     height: 200px;
     border-radius: 50%;

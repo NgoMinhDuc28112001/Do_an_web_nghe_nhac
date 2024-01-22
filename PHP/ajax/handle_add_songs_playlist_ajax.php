@@ -13,7 +13,7 @@
             $playlistName = $_POST['playlistName'];
 
             // Kiểm tra, nếu bài hát đã có trong playlist rồi thì sẽ không cho người dùng thêm
-            $sqlCheckSongPlaylist = "SELECT * FROM playlistsong where playlistsong.songID = {$songID}";
+            $sqlCheckSongPlaylist = "SELECT * FROM playlistsong where playlistsong.songID = {$songID} and playlistsong.playlistID = {$playlistID}";
 
             $stmCheckSongPlaylist = $connect -> prepare($sqlCheckSongPlaylist);
 

@@ -55,6 +55,7 @@
                         <?php
                             echo (isset($errorValidator['email']) ? $errorValidator['email'] : '');
                             echo (isset($errorValidator['checkEmail']) ? $errorValidator['checkEmail'] : '');
+                            echo (isset($errorValidator['checkFormEmail']) ? $errorValidator['checkFormEmail'] : '');
                         ?>
                     </span>
                     <span class="form-message form-message--success">

@@ -6,6 +6,7 @@
     right: 0;
     z-index: 2;
     background-color: var(--primary-color-two);
+    transition: 0.3s linear;
 }
 
 .header
